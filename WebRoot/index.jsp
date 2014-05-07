@@ -161,7 +161,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <a href="index.html" class="f_logo"><img src="images/f_logo.png" alt=""></a>
       
       <div class="copy">
-      &copy; Copyright &copy; 2014.Author: AAAAA Company name All rights reserved.
+      &copy; Copyright &copy; 2014.Author:Jiaqi GAO Company name All rights reserved.
       </div>
       
       <!-- <div class="copy">
