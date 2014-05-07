@@ -15,6 +15,7 @@
 			value="jdbc:mysql://localhost:3306/myshop">
 		</property>
 		<property name="username" value="root"></property>
+		<property name="password" value="!Ab628962"></property>
 	</bean>
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
@@ -31,57 +32,57 @@
 		</property>
 		<property name="mappingResources">
 			<list>
-				<value>Mapping/UserReservation.hbm.xml</value>
-				<value>Mapping/Reservation.hbm.xml</value>
-				<value>Mapping/UserOrder.hbm.xml</value>
-				<value>Mapping/User.hbm.xml</value>
-				<value>Mapping/OrderMenu.hbm.xml</value>
-				<value>Mapping/Order.hbm.xml</value>
-				<value>Mapping/ShopAdmin.hbm.xml</value>
-				<value>Mapping/Shop.hbm.xml</value>
-				<value>Mapping/Menu.hbm.xml</value></list>
+				<value>Data/OrderMenu.hbm.xml</value>
+				<value>Data/UserReservation.hbm.xml</value>
+				<value>Data/UserOrder.hbm.xml</value>
+				<value>Data/Reservation.hbm.xml</value>
+				<value>Data/ShopAdmin.hbm.xml</value>
+				<value>Data/Shop.hbm.xml</value>
+				<value>Data/Menu.hbm.xml</value>
+				<value>Data/Order.hbm.xml</value>
+				<value>Data/User.hbm.xml</value></list>
 		</property></bean>
-	<bean id="UserDAO" class="DAO.UserDAO">
+	<bean id="OrderMenuDAO" class="Data.OrderMenuDAO">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-	<bean id="UserReservationDAO" class="DAO.UserReservationDAO">
+	<bean id="UserReservationDAO" class="Data.UserReservationDAO">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-	<bean id="ReservationDAO" class="DAO.ReservationDAO">
+	<bean id="UserOrderDAO" class="Data.UserOrderDAO">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-	<bean id="OrderDAO" class="DAO.OrderDAO">
+	<bean id="ReservationDAO" class="Data.ReservationDAO">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-	<bean id="OrderMenuDAO" class="DAO.OrderMenuDAO">
+	<bean id="ShopAdminDAO" class="Data.ShopAdminDAO">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-	<bean id="ShopAdminDAO" class="DAO.ShopAdminDAO">
+	<bean id="ShopDAO" class="Data.ShopDAO">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-	<bean id="MenuDAO" class="DAO.MenuDAO">
+	<bean id="MenuDAO" class="Data.MenuDAO">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-	<bean id="UserOrderDAO" class="DAO.UserOrderDAO">
+	<bean id="OrderDAO" class="Data.OrderDAO">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-	<bean id="ShopDAO" class="DAO.ShopDAO">
+	<bean id="UserDAO" class="Data.UserDAO">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>

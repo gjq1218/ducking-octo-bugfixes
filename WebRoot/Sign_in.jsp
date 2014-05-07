@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="s" uri="/struts-tags" %> 
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -93,24 +94,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
              <div class="contact_form">
               <h4>If you have registered in our system, please sign in here.</h4>
                 <div class="form_subtitle">login into your account</div>
-                 <form name="register" action="#">          
+                 <form name="register" action="UserLogin" method="post">  
+                    <s:fielderror cssStyle="color: red">
+                        <s:param>login</s:param>
+                    </s:fielderror>        
                     <div class="form_row">
-                    <label class="contact"><strong>Username:</strong></label>
-                    <input type="text" class="contact_input" />
+                    <label class="contact"><strong>Email:</strong></label>
+                    <input type="text" class="contact_input" name="email" />
+                    <s:fielderror cssStyle="color: red">
+                        <s:param>email</s:param>
+                    </s:fielderror>
                     </div>  
 
 
                     <div class="form_row">
                     <label class="contact"><strong>Password:</strong></label>
-                    <input type="text" class="contact_input" />
+                    <input type="text" class="contact_input" name="password"/>
+                     <s:fielderror cssStyle="color: red">
+                        <s:param>password</s:param>
+                    </s:fielderror>
                     </div>                     
 
-                    <div class="form_row">
+                    <!--<div class="form_row">
                         <div class="terms">
                         <input type="checkbox" name="terms" />
                         Remember me
                         </div>
-                    </div>
+                    </div>-->
                     
                     <div class="form_row">
                     <input type="submit" class="register" value="Login" />
@@ -130,7 +140,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
              <div class="contact_form">
               <h4>If you are new to our system, please register here.</h4>
                 <div class="form_subtitle">Register your account</div>
-                 <form name="register" action="#">          
+                 <form name="register" action="UserRegistration">          
                     <div class="form_row">
                     <label class="contact"><strong>Username:</strong></label>
                     <input type="text" class="contact_input" />
