@@ -86,9 +86,20 @@ public class UserLogin extends ActionSupport{
 		   byte[] resultBytes = this.eccrypt(password1);
 		   StringBuffer show = new StringBuffer();
 		   
-		   for(Byte by:resultBytes)
-	        	show.append(by.toString());
-	       String checkpassword = show.toString();
+		   for(int i= 0; i< resultBytes.length;i++)
+           {
+        	   int v = resultBytes[i] & 0xff;
+        	   if (v<16)
+        	   {
+        		   show.append(0);
+        	   }
+        	   else
+        	   {
+        		   show.append(Integer.toHexString(v));
+        	   }
+           }
+		   
+		   String checkpassword = show.toString();
 				   
 		   for (User check:finding)
 		   {

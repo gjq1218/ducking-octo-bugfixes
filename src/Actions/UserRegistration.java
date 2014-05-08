@@ -128,8 +128,18 @@ public class UserRegistration extends ActionSupport{
 		   byte[] resultBytes = this.eccrypt(password1);
 		   StringBuffer show = new StringBuffer();
 		   
-		   for(Byte by:resultBytes)
-	        	show.append(by.toString());
+		   for(int i= 0; i< resultBytes.length;i++)
+           {
+        	   int v = resultBytes[i] & 0xff;
+        	   if (v<16)
+        	   {
+        		   show.append(0);
+        	   }
+        	   else
+        	   {
+        		   show.append(Integer.toHexString(v));
+        	   }
+           }
 		   User newuser = new User(possibleid,show.toString(), email1,username1);		   
 		   userDAO.save(newuser);		   
 		   return "success";
