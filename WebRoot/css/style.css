@@ -50,7 +50,7 @@ body {
 	padding:0
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,h2,h3, h4, h5, h6 {
 	font-weight: normal;
 	font-family: 'Open Sans', sans-serif ;
 	color: #009fb3;
@@ -64,6 +64,19 @@ h3 {
 	padding-top: 98px;
 	margin-bottom: 49px;
 }
+
+
+h2 {
+	font-size: 20px;
+	line-height: 30px;
+	color: #5f5e4e;
+	padding-top: 60px;
+	margin-bottom: 50px;
+	/* background: url(../images/pint.png) */
+}
+
+
+
 
 .page1 h3 {
 	text-align: center;
@@ -112,18 +125,64 @@ ul {
 
 ul.list {
 	padding-top: 3px;
+	
 }
 
 ul.list li {
-	padding-left: 33px;
-	background: url(../images/marker.png) 0 6px no-repeat;
+	padding-left: 25px;
+ 	background: url(../images/marker.png) 0 5px no-repeat; 
 
 }
+
+/* Gina */
+
+ul.list2 {
+	padding-top: 3px;
+	font:20px;
+}
+
+ul.list2 li {
+	padding-left: 0px;
+	padding-bottom: 10px;
+	font-size: 15px;
+	font-style:normal;
+ /* 	background: url(../images/markpiner.png) 0 5px no-repeat;  */
+
+}
+
+
+
 ul.list li+li {
 
 }
 
 /*links*/
+
+/* Gina */
+
+ul.list2 li a {
+	text-decoration: none;
+	color: inherit;
+	outline: none;
+	transition: 0.5s ease;
+	-o-transition: 0.5s ease;
+	-webkit-transition: 0.5s ease;
+	
+}
+ul.list2 li a:hover {
+	color: #00a1e4;
+	background-color: white 
+	
+}
+
+ul.list2 li a:active {
+	color: #bf388e;
+	/* background-color: yellow  */
+	
+}
+
+
+
 
 a {
 	text-decoration: none;
@@ -134,10 +193,17 @@ a {
 	-webkit-transition: 0.5s ease;
 }
 
+
 a:hover {
-	color: #d9c381;
-	
+
+	color: #d9c381; 
+
 }
+
+
+
+
+
 
 /*preclass*/
 
@@ -801,3 +867,41 @@ footer a:hover {
     background-position: right 0;
     outline: medium none;
 }
+/* profile page */
+/* .profile_form h3 {
+	
+	font-family: Calibri; 
+	font-size: 22pt; 
+	font-style: normal; 
+	font-weight: bold; 
+	color:SlateBlue;
+	text-align: center; 
+	text-decoration: underline 
+} */
+.profile_form table{
+
+	margin-left: 30px;
+	margin-top: 20px;
+	font-family: fantasy; 
+	color: rgb(95, 94, 78);
+	font-size: 11pt; 
+	font-style: normal;
+	border-collapse: initial;
+	width:540px;
+
+	/* background-color: SlateBlue; 
+	
+	/* border: 2px solid navy */
+	
+}
+
+.profile_form td{
+		padding:10px 0 10px 0;
+		_padding:5px 0 5px 0;
+
+}
+
+
+.profile_form table.inner{border: 0px}
+
+

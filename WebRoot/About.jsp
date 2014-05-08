@@ -89,6 +89,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <div class="content"><div class="ic"></div>
   <div class="container_12">
+  
     <div class="grid_8">
     <h3>About Us</h3>
       <img src="images/page2_img.jpg" alt="" class="img_inner fleft">
@@ -99,6 +100,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </div>
        at magna non nunc tristique rhoncus. Aliquam nibh ante, egestas id dictum ammodo luctus libero. Praesent faucibus malesuada faucibus. Lorem ipsum dolor sit ametconsectetur adipiscing elit. Nullam consectetur orci sed nulla facilisis consequat. 
     </div>
+    
     <div class="grid_4">
       <h3>Features</h3>
       <p class="col1 pad1">Magna non nunc tristiquencus. Aliquam nibh ante, egestas id dictum modo luctus libero. </p>
@@ -114,6 +116,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <li><a href="#">Onterdumoin ut </a></li>
       </ul>
     </div>
+    
     <div class="grid_12">
       <h3 class="head1">The Best of Professionals</h3>
     </div>

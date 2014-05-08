@@ -29,6 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           $().UItoTop({ easingType: 'easeOutQuart' });
         }); 
      </script>
+
  
      </head>
      <body class="page1">
@@ -100,7 +101,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </a>
 <a href="Menu.jsp" class="block1">
   <img src="images/blur_img2.jpg" alt="">
-  <span class="price"><span>2nd step: Select Meet.</span><span><small>$</small> 23.90</span><span><small>Select beef</small></span><strong></strong></span>
+  <span class="price"><span>2nd step: Select Meat.</span><span><small>$</small> 23.90</span><span><small>Select beef</small></span><strong></strong></span>
 </a>
 <a href="Menu.jsp" class="block1">
   <img src="images/blur_img3.jpg" alt="">
