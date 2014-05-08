@@ -140,7 +140,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
              <div class="contact_form">
               <h4>If you are new to our system, please register here.</h4>
                 <div class="form_subtitle">Register your account</div>
-                 <form name="register" action="UserRegistration">          
+                 <form name="register" action="UserRegistration" method="post">          
                     <div class="form_row">
                     <label class="contact"><strong>Username:</strong></label>
                     <input name="regisusername" type="text" class="contact_input" />
