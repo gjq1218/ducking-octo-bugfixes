@@ -318,9 +318,9 @@ table.inner{border: 0px} */
 		<!----- Submit and Reset ------------------------------------------------->
 		<tr>
 		<td colspan="2" align="center" >
-		<input type="submit" value="Submit" class = "profile">
+		<input type="reset" value="Edit" class = "profile">
 		 &nbsp;
-		<input type="reset" value="Reset" class = "profile">
+		<input type="submit" value="Submit" class = "profile">
 		</td>
 		</tr>
 		</table>
