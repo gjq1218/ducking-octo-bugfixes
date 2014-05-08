@@ -1,5 +1,7 @@
 package Actions;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
@@ -53,7 +55,15 @@ public class UserRegistration extends ActionSupport{
 		this.regisemail = regisemail;
 	}
 
-	public String checkregister()
+    public byte[] eccrypt(String info) throws NoSuchAlgorithmException{   
+        MessageDigest md5 = MessageDigest.getInstance("MD5");  
+        byte[] srcBytes = info.getBytes();   
+        md5.update(srcBytes);    
+        byte[] resultBytes = md5.digest();  
+        return resultBytes;  
+    }  
+    
+	public String checkregister() throws NoSuchAlgorithmException
    {
 	    String email1 = this.getRegisemail().trim();
 	    
@@ -93,16 +103,16 @@ public class UserRegistration extends ActionSupport{
 	    return checkpossible;
    }
    
-   private String checkpossible() {
+   private String checkpossible() throws NoSuchAlgorithmException {
 		// TODO Auto-generated method stub
 	   Resource res =new FileSystemResource("/Users/haoyuanji/Workspaces2/MyEclipse 10/ShopSystem/src/applicationContext.xml");
 	   BeanFactory factory = new XmlBeanFactory(res); 
 	   UserDAO userDAO = (UserDAO) factory.getBean("UserDAO");
-	   String email = this.getRegisemail().trim();
-	   String username = this.getRegisusername().trim();
-	   String password = this.getRegispassword().trim();
+	   String email1 = this.getRegisemail().trim();
+	   String username1 = this.getRegisusername().trim();
+	   String password1 = this.getRegispassword().trim();
 	   
-	   List<User> finding = userDAO.findByEmail(email);
+	   List<User> finding = userDAO.findByEmail(email1);
 	   
 	   if (finding.isEmpty())
 	   {
@@ -111,11 +121,16 @@ public class UserRegistration extends ActionSupport{
 		   String possibleid = null;
 		   while(!isPossible)
 		   {
-		       possibleid = String.valueOf(randomgenerator.nextInt());
+		       possibleid = String.valueOf(Math.abs(randomgenerator.nextInt()));
 		       if(userDAO.findById(possibleid) == null)
 		    	   isPossible = true;
 		   }
-		   User newuser = new User(possibleid,password, email,username);		   
+		   byte[] resultBytes = this.eccrypt(password1);
+		   StringBuffer show = new StringBuffer();
+		   
+		   for(Byte by:resultBytes)
+	        	show.append(by.toString());
+		   User newuser = new User(possibleid,show.toString(), email1,username1);		   
 		   userDAO.save(newuser);		   
 		   return "success";
 	   }

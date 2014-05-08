@@ -1,5 +1,7 @@
 package Actions;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -41,7 +43,15 @@ public class UserLogin extends ActionSupport{
  
    }
    
-   public String checklogin(UserDAO userDAO)
+   public byte[] eccrypt(String info) throws NoSuchAlgorithmException{   
+        MessageDigest md5 = MessageDigest.getInstance("MD5");  
+        byte[] srcBytes = info.getBytes();   
+        md5.update(srcBytes);    
+        byte[] resultBytes = md5.digest();  
+        return resultBytes;  
+    }  
+    
+   public String checklogin(UserDAO userDAO) throws NoSuchAlgorithmException
    {
 	      String email1 = this.getEmail().trim();
 	      String password1 = this.getPassword().trim();
@@ -73,11 +83,19 @@ public class UserLogin extends ActionSupport{
 	   List<User> finding = userDAO.findByEmail(email);
 	   if (finding != null)
 	   {
+		   byte[] resultBytes = this.eccrypt(password1);
+		   StringBuffer show = new StringBuffer();
+		   
+		   for(Byte by:resultBytes)
+	        	show.append(by.toString());
+	       String checkpassword = show.toString();
+				   
 		   for (User check:finding)
 		   {
 			   if (check.getEmail().equals(email1))
 			   {
-				   if(check.getUserPasscode().equals(password1))
+
+				   if(check.getUserPasscode().equals(checkpassword))
 				      return "success";
 				   else 
 				   {
