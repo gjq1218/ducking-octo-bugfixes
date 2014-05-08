@@ -123,7 +123,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </div>-->
                     
                     <div class="form_row">
-                    <input type="submit" class="register" value="Login" />
+                    <s:submit name="action:UserLogin" cssClass="register" value="Login" />
                     </div>    
                     
                   </form>     
@@ -143,22 +143,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                  <form name="register" action="UserRegistration">          
                     <div class="form_row">
                     <label class="contact"><strong>Username:</strong></label>
-                    <input type="text" class="contact_input" />
+                    <input name="regisusername" type="text" class="contact_input" />
+                    <s:fielderror cssStyle="color: red">
+                        <s:param>regisusername</s:param>
+                    </s:fielderror>
                     </div>  
 
 
                     <div class="form_row">
                     <label class="contact"><strong>Password:</strong></label>
-                    <input type="text" class="contact_input" />
+                    <input name="regispassword" type="text" class="contact_input" />
+                    <s:fielderror cssStyle="color: red">
+                        <s:param>regispassword</s:param>
+                    </s:fielderror>
                     </div>                     
 	
 					<div class="form_row">
                     <label class="contact"><strong>E-mail:</strong></label>
-                    <input type="text" class="contact_input" />
+                    <input name="regisemail" type="text" class="contact_input" />
+                     <s:fielderror cssStyle="color: red">
+                        <s:param>regisemail</s:param>
+                    </s:fielderror>
                     </div>  
                     
                     <div class="form_row">
-                    <input type="submit" class="register" value="Register" />
+                    <s:submit name="action:UserRegistration" cssClass="register" value="Register" />
                     </div>    
                     
                   </form>     

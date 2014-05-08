@@ -18,17 +18,10 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class UserLogin extends ActionSupport{
 
-	private static final long serialVersionUID = -1670621381682497767L;
-	private String username;  
+	private static final long serialVersionUID = -1670621381682497767L; 
     private String password;  
     private String email;
     
-    public String getUsername() {  
-       return username;  
-    }  
-    public void setUsername(String username) {  
-       this.username = username;  
-    }  
     public String getPassword() {  
        return password;  
     }  
@@ -43,56 +36,71 @@ public class UserLogin extends ActionSupport{
 		this.email = email;
 	}
 	
-    public void validate()
+	public void validate()
    {
-       if(null == this.getEmail() || "".equals(this.getEmail().trim()))
-        {
-            this.addFieldError("email", "Email is required!");
-        }
-       else
-       {
-    	    // check email format
-           String check = "^([a-z0-9A-Z]+[-|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$";  
-           Pattern regex = Pattern.compile(check);  
-           Matcher matcher = regex.matcher(this.getEmail());  
-           boolean isMatched = matcher.matches(); 
-           if(!isMatched)
-           {
-        	   this.addFieldError("email", "This is not an legal email address!");
-           }
-        }
-        if(null == this.getPassword() || "".equals(this.getPassword().trim()))
-        {
-            this.addFieldError("password", "Password is required!");
-        }
+ 
    }
    
-   public String execute() throws Exception { 
-	   
-	   Resource res =new FileSystemResource("/Users/haoyuanji/Workspaces2/MyEclipse 10/ShopSystem/src/applicationContext.xml");
-	   BeanFactory factory = new XmlBeanFactory(res); 
-	   UserDAO userDAO = (UserDAO) factory.getBean("UserDAO");
-	   String email = this.getEmail().trim();
+   public String checklogin(UserDAO userDAO)
+   {
+	      String email1 = this.getEmail().trim();
+	      String password1 = this.getPassword().trim();
+	      
+	     if(null == this.getEmail() || "".equals(this.getEmail().trim()))
+	        {
+	            this.addFieldError("email", "Email is required!");
+	            return INPUT;
+	        }
+	       else
+	       {
+	    	    // check email format
+	           String check = "^([a-z0-9A-Z]+[-|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$";  
+	           Pattern regex = Pattern.compile(check);  
+	           Matcher matcher = regex.matcher(email1);  
+	           boolean isMatched = matcher.matches(); 
+	           if(!isMatched)
+	           {
+	        	   this.addFieldError("email", "This is not an legal email address!");
+	        	   return INPUT;
+	           }
+	        }
+	        if(null == this.getPassword() || "".equals(this.getPassword().trim()))
+	        {
+	            this.addFieldError("password", "Password is required!");
+	            return INPUT;
+	        }
 	   
 	   List<User> finding = userDAO.findByEmail(email);
 	   if (finding != null)
 	   {
 		   for (User check:finding)
 		   {
-			   if (check.getEmail().equals(email))
+			   if (check.getEmail().equals(email1))
 			   {
-				   if(check.getUserPasscode().equals(password))
+				   if(check.getUserPasscode().equals(password1))
 				      return "success";
 				   else 
 				   {
-					 this.addFieldError("login", "Wrong email or passcode!!"); 
 					 return "fail";
 				   }
 			   }
 		   }
 	   }
        return "fail";
-//	   return "success";
+   }
+
+   public String execute() throws Exception { 
+	   
+	   Resource res =new FileSystemResource("/Users/haoyuanji/Workspaces2/MyEclipse 10/ShopSystem/src/applicationContext.xml");
+	   BeanFactory factory = new XmlBeanFactory(res); 
+	   UserDAO userDAO = (UserDAO) factory.getBean("UserDAO");
+	   String result = checklogin(userDAO);
+	   
+	   if (result.equals("fail"))
+		   this.addFieldError("login", "Wrong email or passcode!!"); 
+	   
+	   return result;
+	   
    }  
      
 
