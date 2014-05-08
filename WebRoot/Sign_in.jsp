@@ -109,7 +109,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
                     <div class="form_row">
                     <label class="contact"><strong>Password:</strong></label>
-                    <input type="text" class="contact_input" name="password"/>
+                    <input type="password" class="contact_input" name="password"/>
                      <s:fielderror cssStyle="color: red">
                         <s:param>password</s:param>
                     </s:fielderror>
@@ -152,7 +152,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
                     <div class="form_row">
                     <label class="contact"><strong>Password:</strong></label>
-                    <input name="regispassword" type="text" class="contact_input" />
+                    <input name="regispassword" type="password" class="contact_input" />
                     <s:fielderror cssStyle="color: red">
                         <s:param>regispassword</s:param>
                     </s:fielderror>
