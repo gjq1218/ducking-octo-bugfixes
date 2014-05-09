@@ -29,16 +29,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           $().UItoTop({ easingType: 'easeOutQuart' });
         }); 
      </script>
- 
+     <% session.removeAttribute("currentuser"); %>
      </head>
      <body class="page1">
 
 <!--==============================header=================================-->
- <header> 
+  <header> 
   <div class="container_12">
    <div class="grid_12"> 
     <div class="socials">
-   
+      
       <%-- Twitter share --%>
       <a href="https://twitter.com/share" class = "last1">
       <script>!function(d,s,id)
@@ -58,20 +58,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	  <%--Tumblr --%>
       <a href="http://www.tumblr.com/share" class="last4"></a> 
+
     </div>
-    <h1><a href="index.jsp"><img src="images/logo.png" alt="Boo House"></a> </h1>
+    <h1><a href="index.html"><img src="images/logo.png" alt="Boo House"></a> </h1>
     <div class="menu_block">
 
 
     <nav id="bt-menu" class="bt-menu">
         <a href="#" class="bt-menu-trigger"><span>Menu</span></a>
         <ul>
-         <li class="bt-icon"><a href="index.jsp">Home</a></li>
-         <li class="bt-icon"><a href="About.jsp">About</a></li>
+          <li class="bt-icon"><a href="index.jsp">Home</a></li>
+          <li class="bt-icon "><a href="Sign_in.jsp">About</a></li>
          <li class="bt-icon"><a href="Menu.jsp">Menu</a></li>
-         <li class="current bt-icon "><a href="Sign_in.jsp">Sign In</a>
+        
+             <% if(session.getAttribute("currentuser")==null) {%>
+                  <li class="current bt-icon"><a href="Sign_in.jsp">Sign In</a></li>
+             <%}else{%>
+                  <li class="bt-icon"><a href="Profile.jsp">My Profile</a></li>
+             <%} %>
+   
          <li class="bt-icon"><a href="Reservation.jsp">Reservation</a></li>
-         <li class="bt-icon"><a href="Contacts.jsp">Contacts</a></li>   
+         <li class="bt-icon"><a href="Contacts.jsp">Contacts</a></li>
+       
         </ul>
       </nav>
     

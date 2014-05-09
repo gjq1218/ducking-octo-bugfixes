@@ -48,6 +48,17 @@ public class UserDAO extends HibernateDaoSupport {
 			throw re;
 		}
 	}
+	
+	public void update(User transientInstance) {
+		log.debug("saving User instance");
+		try {
+			getHibernateTemplate().update(transientInstance);
+			log.debug("update successful");
+		} catch (RuntimeException re) {
+			log.error("update failed", re);
+			throw re;
+		}
+	}
 
 	public void delete(User persistentInstance) {
 		log.debug("deleting User instance");

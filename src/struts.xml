@@ -12,12 +12,15 @@
   <result name="fail">Sign_in.jsp</result>
   <result name="input">Sign_in.jsp</result>
   </action>
-  
   <action name = "AdminLogin" class = "Actions.AdminLogin">
   <result name = "success">Template.jsp</result>
   <result name = "input"> Adminlogin.jsp</result>
   <result name = "fail">Adminlogin.jsp</result>
   </action>
-  
+  <action name="Editprofile" class="Actions.Editprofile">   
+  <result name="success">Profile.jsp</result>   
+  <result name="fail">editprofile.jsp</result>
+  <result name="input">editprofile.jsp</result>
+>>>>>>> 64a8116ef1eaf4fe92709a654b3646bff3cd9a6d
   </package> 
 </struts>    
