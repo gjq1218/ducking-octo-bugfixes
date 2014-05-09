@@ -21,6 +21,6 @@
   <result name="success">Profile.jsp</result>   
   <result name="fail">editprofile.jsp</result>
   <result name="input">editprofile.jsp</result>
->>>>>>> 64a8116ef1eaf4fe92709a654b3646bff3cd9a6d
+  </action>
   </package> 
 </struts>    
