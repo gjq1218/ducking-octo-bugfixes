@@ -35,7 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      
      
      <!--==============================header=================================-->
- <header> 
+  <header> 
   <div class="container_12">
    <div class="grid_12"> 
     <div class="socials">
@@ -71,7 +71,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <li class="bt-icon"><a href="index.jsp">Home</a></li>
           <li class="current bt-icon "><a href="About.jsp">About</a></li>
          <li class="bt-icon"><a href="Menu.jsp">Menu</a></li>
-         <li class="bt-icon"><a href="Sign_in.jsp">Sign In</a></li>
+        
+             <% if(session.getAttribute("currentuser")==null) {%>
+                  <li class="bt-icon"><a href="Sign_in.jsp">Sign In</a></li>
+             <%}else{%>
+                  <li class="bt-icon"><a href="Profile.jsp">My Profile</a></li>
+             <%} %>
+   
          <li class="bt-icon"><a href="Reservation.jsp">Reservation</a></li>
          <li class="bt-icon"><a href="Contacts.jsp">Contacts</a></li>
        

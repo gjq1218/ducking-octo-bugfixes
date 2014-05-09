@@ -2,7 +2,7 @@
 
    <div class ="grid_13">
    	<div class = "welcome">
-      <h2>Welcome</h2>
+      <h2>Welcome, <s:property value="#session.currentuser.getUserName()"/></h2>
       <!--  <p class="col1 pad1">Magna non nunc tristique</p> -->
        
        <ul class="list2">
@@ -11,8 +11,7 @@
         <li><a href="#">View your order </a></li>
         <li><a href="#">Make Reservation</a></li>
         <li><a href="#">Change password </a></li>
-        <li><a href="#">Sagittis  Consequat Lacus </a></li>
-        <li><a href="#">Onterdumoin ut </a></li>
+        <li><a href="Sign_in.jsp"><u>Sign out</u></a></li>
       </ul>
       </div>
       </div>

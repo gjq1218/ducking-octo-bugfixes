@@ -42,6 +42,17 @@ public class OrderDAO extends HibernateDaoSupport {
 			throw re;
 		}
 	}
+	
+	public void update(Order transientInstance) {
+		log.debug("updating Order instance");
+		try {
+			getHibernateTemplate().update(transientInstance);
+			log.debug("update successful");
+		} catch (RuntimeException re) {
+			log.error("update failed", re);
+			throw re;
+		}
+	}
 
 	public void delete(Order persistentInstance) {
 		log.debug("deleting Order instance");

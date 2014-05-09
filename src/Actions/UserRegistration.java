@@ -17,6 +17,7 @@ import org.springframework.core.io.Resource;
 import Data.User;
 import Data.UserDAO;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class UserRegistration extends ActionSupport{
@@ -140,8 +141,11 @@ public class UserRegistration extends ActionSupport{
         		   show.append(Integer.toHexString(v));
         	   }
            }
-		   User newuser = new User(possibleid,show.toString(), email1,username1);		   
-		   userDAO.save(newuser);		   
+		   User newuser = new User(possibleid,show.toString(), email1,username1);	
+		   newuser.setCredit(String.valueOf(0));
+		   newuser.setLevel("Bronze Member");
+		   userDAO.save(newuser);	
+		   ActionContext.getContext().getSession().put("currentuser", newuser);
 		   return "success";
 	   }
        return "fail";

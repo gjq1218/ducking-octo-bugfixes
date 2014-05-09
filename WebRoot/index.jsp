@@ -30,20 +30,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         }); 
      </script>
 
- 
+      <%
+        session.setMaxInactiveInterval(10);    
+      %>
      </head>
      <body class="page1">
 
 <!--==============================header=================================-->
- <header> 
+  <header> 
   <div class="container_12">
    <div class="grid_12"> 
     <div class="socials">
-    
-     <%-- Twitter share --%
-     <%-- <a href="http://twitter.com/home?status=<?php echo urlencode($title).' '.$current_url; ?>" title="Click to share this post on Twitter" target="_blank">
-     <img src="images/pint.png" alt="Share on Twitter" title="Share on twitter"></a>   --%>
- 
       
       <%-- Twitter share --%>
       <a href="https://twitter.com/share" class = "last1">
@@ -55,33 +52,37 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       	js.src="//platform.twitter.com/widgets.js";
       	fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></a>
     
-  	<%-- Facebook share --%>
-	 <a href="http://www.facebook.com/share.php?u=<?php echo $current_url; ?>" target="_blank" class = "last2"></a> 
+  	  <%-- Facebook share --%>
+	  <a href="http://www.facebook.com/share.php?u=<?php echo $current_url; ?>" target="_blank" class = "last2"></a> 
      
-    
-    <%-- Googel+ share --%>
-     <a href="https://plus.google.com/share?url=<?php echo urldecode($current_url); ?>" onclick="javascript:window.open(this.href, '_blank','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');" class = "last3">
+      <%-- Googel+ share --%>
+      <a href="https://plus.google.com/share?url=<?php echo urldecode($current_url); ?>" onclick="javascript:window.open(this.href, '_blank','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');" class = "last3">
  	</a>
 
+	  <%--Tumblr --%>
+      <a href="http://www.tumblr.com/share" class="last4"></a> 
 
-	<%--Tumblr --%>
-    <a href="http://www.tumblr.com/share" class="last4"></a> 
     </div>
-    <h1><a href="index.jsp"><img src="images/logo.png" alt="Boo House"></a> </h1>
+    <h1><a href="index.html"><img src="images/logo.png" alt="Boo House"></a> </h1>
     <div class="menu_block">
 
 
     <nav id="bt-menu" class="bt-menu">
         <a href="#" class="bt-menu-trigger"><span>Menu</span></a>
         <ul>
-         <li class="current bt-icon "><a href="index.jsp">Home</a></li>
-         <li class="bt-icon"><a href="About.jsp">About</a></li>
+          <li class="current bt-icon"><a href="index.jsp">Home</a></li>
+          <li class="bt-icon "><a href="About.jsp">About</a></li>
          <li class="bt-icon"><a href="Menu.jsp">Menu</a></li>
-         <li class="bt-icon"><a href="Sign_in.jsp">Sign In</a></li>
+        
+             <% if(session.getAttribute("currentuser")==null) {%>
+                  <li class="bt-icon"><a href="Sign_in.jsp">Sign In</a></li>
+             <%}else{%>
+                  <li class="bt-icon"><a href="Profile.jsp">My Profile</a></li>
+             <%} %>
+   
          <li class="bt-icon"><a href="Reservation.jsp">Reservation</a></li>
          <li class="bt-icon"><a href="Contacts.jsp">Contacts</a></li>
        
-         
         </ul>
       </nav>
     

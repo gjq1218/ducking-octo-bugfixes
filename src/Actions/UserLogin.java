@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.core.io.FileSystemResource;
@@ -16,6 +17,7 @@ import org.springframework.core.io.Resource;
 import Data.User;
 import Data.UserDAO;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class UserLogin extends ActionSupport{
@@ -107,7 +109,10 @@ public class UserLogin extends ActionSupport{
 			   {
 
 				   if(check.getUserPasscode().equals(checkpassword))
+				   {
+					  ActionContext.getContext().getSession().put("currentuser", check);
 				      return "success";
+				   }
 				   else 
 				   {
 					 return "fail";

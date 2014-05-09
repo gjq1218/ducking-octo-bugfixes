@@ -12,5 +12,10 @@
   <result name="fail">Sign_in.jsp</result>
   <result name="input">Sign_in.jsp</result>
   </action>
+  <action name="Editprofile" class="Actions.Editprofile">   
+  <result name="success">Profile.jsp</result>   
+  <result name="fail">editprofile.jsp</result>
+  <result name="input">editprofile.jsp</result>
+  </action>
   </package> 
 </struts>    

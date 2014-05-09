@@ -57,7 +57,7 @@ table.inner{border: 0px} */
      
      
 <!--==============================header=================================-->
-   <header> 
+ <header> 
   <div class="container_12">
    <div class="grid_12"> 
     <div class="socials">
@@ -91,13 +91,13 @@ table.inner{border: 0px} */
         <a href="#" class="bt-menu-trigger"><span>Menu</span></a>
         <ul>
           <li class="bt-icon"><a href="index.jsp">Home</a></li>
-          <li class="bt-icon "><a href="Sign_in.jsp">About</a></li>
+          <li class="bt-icon "><a href="About.jsp">About</a></li>
          <li class="bt-icon"><a href="Menu.jsp">Menu</a></li>
         
              <% if(session.getAttribute("currentuser")==null) {%>
                   <li class="bt-icon"><a href="Sign_in.jsp">Sign In</a></li>
              <%}else{%>
-                  <li class="current bt-icon"><a href="Profile.jsp">My Profile</a></li>
+                  <li class="bt-icon"><a href="Profile.jsp">My Profile</a></li>
              <%} %>
    
          <li class="bt-icon"><a href="Reservation.jsp">Reservation</a></li>
@@ -112,6 +112,7 @@ table.inner{border: 0px} */
           </div>
       </div>
 </header>
+
 
 <!--==============================Content=================================-->
 
@@ -129,8 +130,10 @@ table.inner{border: 0px} */
                 <div class="form_subtitle">View your profile.</div>
         
      	
-         <form name="profile">
- 	
+     <form name="profile" action="Editprofile">
+ 		 <s:fielderror cssStyle="color: red">
+           <s:param>edit</s:param>
+        </s:fielderror>
  	
 		<table> 
 		
@@ -138,9 +141,13 @@ table.inner{border: 0px} */
 		
 	  
 		<tr>
+	    <s:fielderror cssStyle="color: red">
+           <s:param>editusername</s:param>
+        </s:fielderror> 
 		<td>Username</td>
 		<td>
-        <s:property value="#session.currentuser.getUserName()"/>			
+		<input type="text" name="editusername" value="${session.currentuser.userName}" maxlength="30"/>
+		(max 30 characters a-z and A-Z)		
 		</td>
 		</tr>
 
@@ -153,15 +160,21 @@ table.inner{border: 0px} */
  
 		<!----- Phone Number ---------------------------------------------------------->
 		<tr>
+	    <s:fielderror cssStyle="color: red">
+           <s:param>editphone</s:param>
+        </s:fielderror>
 		<td>Phone Number</td>
-        <td><s:property value="#session.currentuser.getPhone()"/>		
+		<td>
+		<input type="text" name="editphone" value="${session.currentuser.phone}" maxlength="10"/>
+		(10 digit number)
+		</td>
 		</tr>
  
  
 		<!----- Address ---------------------------------------------------------->
 		<tr>
 		<td>Address <br /><br /><br /></td>
-		<td><s:property value="#session.currentuser.getUserAddress()"/>
+		<td><textarea name="editaddress" rows="4" cols="30">${session.currentuser.userAddress}</textarea></td>
 		</tr>
  
 		
@@ -184,13 +197,13 @@ table.inner{border: 0px} */
 		
 		<!----- Submit and Reset ------------------------------------------------->
 		<tr>
-		<td colspan="5" align="right" >
-		<a href="editprofile.jsp"><input type="button" value="Edit" class = "profile">
+		<td colspan="2" align="right" >
+		<input type="submit" value="Submit" class = "profile">
 		</td>
 		</tr>
 		</table>
 		 
-		</form>
+  </form>
 		     	
       </div>	
      	
