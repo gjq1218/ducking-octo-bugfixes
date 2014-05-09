@@ -31,7 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      </script>
 
       <%
-        session.setMaxInactiveInterval(10);    
+        session.setMaxInactiveInterval(120);    
       %>
      </head>
      <body class="page1">

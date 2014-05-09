@@ -32,9 +32,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          
        }); 
      </script>
-      <%
-        session.setMaxInactiveInterval(10);    
-      %>
       <% if(session.getAttribute("currentuser") == null) {%>
       <script>
             alert("Session expired, please re-Login!");

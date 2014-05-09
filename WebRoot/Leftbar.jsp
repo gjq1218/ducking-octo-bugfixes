@@ -11,7 +11,7 @@
         <li><a href="#">View your order </a></li>
         <li><a href="Makereservation.jsp">Make Reservation</a></li>
         <li><a href="Changepassword.jsp">Change password </a></li>
-        <li><a href="Sign out"><u>Sign out</u></a></li>
+        <li><a href="Sign_in.jsp"><u>Sign out</u></a></li>
       
       </ul>
       </div>
