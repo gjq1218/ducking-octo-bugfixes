@@ -431,6 +431,7 @@ margin:-100px 0 0 15px;
 _margin:-100px 0 0 5px;
 border:1px #d7d7b1 dashed;
 position:relative;
+
 }
 .form_row{
 width:335px;
@@ -558,3 +559,19 @@ color:#FFFFFF;
 font-size:15px;
 line-height:30px;
 }
+
+/*---------------Adminlogin_form------------------*/
+.Adminlogin_form{
+
+width:355px;
+float:left;
+padding:25px;
+margin:-100px 0 0 276px;
+_margin:-100px 0 0 5px;
+border:1px #d7d7b1 dashed;
+position:relative;
+
+}
+
+
+ 

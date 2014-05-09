@@ -12,5 +12,12 @@
   <result name="fail">Sign_in.jsp</result>
   <result name="input">Sign_in.jsp</result>
   </action>
+  
+  <action name = "AdminLogin" class = "Actions.AdminLogin">
+  <result name = "success">Template.jsp</result>
+  <result name = "input"> Adminlogin.jsp</result>
+  <result name = "fail">Adminlogin.jsp</result>
+  </action>
+  
   </package> 
 </struts>    

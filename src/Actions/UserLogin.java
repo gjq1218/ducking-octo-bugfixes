@@ -41,7 +41,7 @@ public class UserLogin extends ActionSupport{
 	public void validate()
    {
  
-   }
+   }/*use for???*/
    
    public byte[] eccrypt(String info) throws NoSuchAlgorithmException{   
         MessageDigest md5 = MessageDigest.getInstance("MD5");  
@@ -120,7 +120,7 @@ public class UserLogin extends ActionSupport{
 
    public String execute() throws Exception { 
 	   
-	   Resource res =new FileSystemResource("/Users/haoyuanji/Workspaces2/MyEclipse 10/ShopSystem/src/applicationContext.xml");
+	   Resource res =new FileSystemResource("/Users/Gina/Programming/workspace_MyEclipse/ShopSystem/src/applicationContext.xml");
 	   BeanFactory factory = new XmlBeanFactory(res); 
 	   UserDAO userDAO = (UserDAO) factory.getBean("UserDAO");
 	   String result = checklogin(userDAO);
