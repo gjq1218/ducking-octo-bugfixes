@@ -9,6 +9,10 @@ public abstract class AbstractUserOrder implements java.io.Serializable {
 
 	// Fields
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6392637341615095863L;
 	private UserOrderId id;
 
 	// Constructors

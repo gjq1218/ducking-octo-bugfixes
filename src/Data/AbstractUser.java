@@ -12,6 +12,10 @@ public abstract class AbstractUser implements java.io.Serializable {
 
 	// Fields
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6267525634137519108L;
 	private String userId;
 	private String userPasscode;
 	private String userAddress;
@@ -21,8 +25,8 @@ public abstract class AbstractUser implements java.io.Serializable {
 	private String userName;
 	private String credit;
 	private String level;
-	private Set userReservations = new HashSet(0);
-	private Set userOrders = new HashSet(0);
+	private Set<UserReservation> userReservations = new HashSet<UserReservation>(0);
+	private Set<UserOrder> userOrders = new HashSet<UserOrder>(0);
 
 	// Constructors
 
@@ -42,7 +46,7 @@ public abstract class AbstractUser implements java.io.Serializable {
 	/** full constructor */
 	public AbstractUser(String userId, String userPasscode, String userAddress,
 			String phone, String email, String avatar, String userName,
-			String credit, String level, Set userReservations, Set userOrders) {
+			String credit, String level, Set<UserReservation> userReservations, Set<UserOrder> userOrders) {
 		this.userId = userId;
 		this.userPasscode = userPasscode;
 		this.userAddress = userAddress;
@@ -130,19 +134,19 @@ public abstract class AbstractUser implements java.io.Serializable {
 		this.level = level;
 	}
 
-	public Set getUserReservations() {
+	public Set<UserReservation> getUserReservations() {
 		return this.userReservations;
 	}
 
-	public void setUserReservations(Set userReservations) {
+	public void setUserReservations(Set<UserReservation> userReservations) {
 		this.userReservations = userReservations;
 	}
 
-	public Set getUserOrders() {
+	public Set<UserOrder> getUserOrders() {
 		return this.userOrders;
 	}
 
-	public void setUserOrders(Set userOrders) {
+	public void setUserOrders(Set<UserOrder> userOrders) {
 		this.userOrders = userOrders;
 	}
 

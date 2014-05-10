@@ -9,6 +9,11 @@ public class User extends AbstractUser implements java.io.Serializable {
 
 	// Constructors
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7457647445538339786L;
+
 	/** default constructor */
 	public User() {
 	}
@@ -22,7 +27,7 @@ public class User extends AbstractUser implements java.io.Serializable {
 	/** full constructor */
 	public User(String userId, String userPasscode, String userAddress,
 			String phone, String email, String avatar, String userName,
-			String credit, String level, Set userReservations, Set userOrders) {
+			String credit, String level, Set<UserReservation> userReservations, Set<UserOrder> userOrders) {
 		super(userId, userPasscode, userAddress, phone, email, avatar,
 				userName, credit, level, userReservations, userOrders);
 	}

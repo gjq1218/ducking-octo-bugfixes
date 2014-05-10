@@ -12,12 +12,16 @@ public abstract class AbstractMenu implements java.io.Serializable {
 
 	// Fields
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4577484340634682778L;
 	private String menuId;
 	private String itemName;
 	private String category;
 	private Double price;
 	private String pictureId;
-	private Set orderMenus = new HashSet(0);
+	private Set<OrderMenu> orderMenus = new HashSet<OrderMenu>(0);
 
 	// Constructors
 
