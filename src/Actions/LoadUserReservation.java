@@ -92,7 +92,7 @@ public String execute() throws Exception{
 	
 	User currentuser = (User) ActionContext.getContext().getSession().get("currentuser");
 	
-	Resource tmp = new FileSystemResource("/Users/Gina/Programming/workspace_MyEclipse/ShopSystem/src/applicationContext.xml");
+	Resource tmp = new FileSystemResource("/Users/haoyuanji/Workspaces2/MyEclipse 10/ShopSystem/src/applicationContext.xml");
 	BeanFactory factory = new XmlBeanFactory(tmp);
 	UserDAO userDAO = (UserDAO) factory.getBean("UserDAO");
 	ReservationDAO reservationDAO = (ReservationDAO) factory.getBean("ReservationDAO");
