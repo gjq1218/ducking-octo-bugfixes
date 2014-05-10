@@ -127,7 +127,12 @@ public class Editprofile extends ActionSupport{
    
   
 public String execute() throws Exception { 
-	   String result = editregister();
+	//the session is expired, you should login again.
+	if (!ActionContext.getContext().getSession().containsKey("currentuser"))
+		return INPUT;   
+	
+	String result = editregister();
+	   
 	   
 	   if(result.equals("fail"))
 		   this.addFieldError("edit", "Cannot updata databases!");
