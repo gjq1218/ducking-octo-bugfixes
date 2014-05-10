@@ -84,8 +84,9 @@ public String buysomething(String something) throws ParseException{
 	    	   isPossible = true;
 	   }
 	   
+	   
 	   currentorder.setOrderId(possibleid);
-	   currentorder.setType("active");
+	   currentorder.setType("current");
 	   currentorder.setOverallPrice(0.0);
 	   currentorder.setDeliveryAddress("not known");
 	   List<Shop> defaultshopllist = shopDAO.findByShopName("Baltimore");

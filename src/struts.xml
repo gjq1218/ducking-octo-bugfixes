@@ -33,12 +33,16 @@
   </action>
   <action name = "LoadUserReservation" class="Actions.LoadUserReservation">
   <result name="success">Reservationresult.jsp</result>   
-  <result name="fail">Menu.jsp</result>
-  <result name="input">Viewreservation.jsp</result>
+  <result name="input">Sign_in.jsp</result>
   </action>
   <action name = "Changepassword" class = "Actions.Changepassword">
   <result name = "success">Changepassword.jsp</result>
-  <result name = " fail">Changepassword.jsp </result>
+  <result name = "fail">Changepassword.jsp </result>
+  <result name = "input">Sign_in.jsp </result>
+  </action>
+  <action name = "Loadcurrentcart" class = "Actions.Loadcurrentcart">
+  <result name = "success">Cartresult.jsp</result>
+  <result name = "input">Sign_in.jsp </result>
   </action>
   </package> 
 </struts>   

@@ -96,9 +96,6 @@ public class UserReservationDAO extends HibernateDaoSupport {
 	}
 
 
-//	public List findByReservation(Object reservation) {
-//		return findByProperty("reservation_id", reservation);
-//	}
 	
 	public List findByUser(User user) {
 		log.debug("finding specific User's Reservation instances");
@@ -113,8 +110,6 @@ public class UserReservationDAO extends HibernateDaoSupport {
 				}
 			}
 			return thisuserReservations;
-			//String queryString = "from UserReservation";
-			//return getHibernateTemplate().find(queryString);
 		} catch (RuntimeException re) {
 			log.error("find all failed", re);
 			throw re;

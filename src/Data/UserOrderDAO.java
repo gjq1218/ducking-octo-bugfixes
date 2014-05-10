@@ -1,5 +1,6 @@
 package Data;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.LockMode;
 import org.slf4j.Logger;
@@ -88,6 +89,26 @@ public class UserOrderDAO extends HibernateDaoSupport {
 			throw re;
 		}
 	}
+	
+	public List findByUser(User user) {
+		log.debug("finding specific User's Reservation instances");
+		try {
+			List<UserOrder> alluserOrders = findAll();
+			List<Order> thisusercurrentOrders = new ArrayList<Order>();
+			for(UserOrder item:alluserOrders)
+			{
+				if(item.getId().getUser().getUserId().equals(user.getUserId()))
+				{
+					thisusercurrentOrders.add(item.getId().getOrder());
+				}
+			}
+			return thisusercurrentOrders;
+		} catch (RuntimeException re) {
+			log.error("find all failed", re);
+			throw re;
+		}
+	}
+	
 
 	public List findAll() {
 		log.debug("finding all UserOrder instances");

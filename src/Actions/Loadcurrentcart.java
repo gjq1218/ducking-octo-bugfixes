@@ -14,6 +14,9 @@ import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 
+import Data.Menu;
+import Data.Order;
+import Data.OrderDAO;
 import Data.ReservationDAO;
 import Data.Shop;
 import Data.ShopAdmin;
@@ -22,6 +25,8 @@ import Data.Reservation;
 import Data.ShopDAO;
 import Data.User;
 import Data.UserDAO;
+import Data.UserOrder;
+import Data.UserOrderDAO;
 import Data.UserReservationDAO;
 
 import com.opensymphony.xwork2.ActionContext;
@@ -30,30 +35,31 @@ import com.opensymphony.xwork2.ActionSupport;
 
 
 
-public class LoadUserReservation extends ActionSupport{
+public class Loadcurrentcart extends ActionSupport{
 		
-    List<Reservation> currentUserReservation = new ArrayList<Reservation>();
+    List<Order> currentcart = new ArrayList<Order>();
 
-   public List<Reservation> getCurrentUserReservation() {
-		return currentUserReservation;
+
+   public List<Order> getCurrentcart() {
+		return currentcart;
 	}
 
-	public void setCurrentUserReservation(List<Reservation> currentUserReservation) {
-		this.currentUserReservation = currentUserReservation;
+	public void setCurrentcart(List<Order> currentcart) {
+		this.currentcart = currentcart;
 	}
 
-public List<Reservation> sortbytime(List<Reservation> originlist)
+public List<Order> sortbytime(List<Order> originlist)
 {
 	if (originlist == null) return null;
-	List<Reservation> finallist = new ArrayList<Reservation>();
+	List<Order> finallist = new ArrayList<Order>();
 	
 	int size = originlist.size();
 	
 	for (int i = 0; i<size; i++)
 	{
-		Reservation thisone = originlist.get(0);
+		Order thisone = originlist.get(0);
 		Timestamp thistime = thisone.getTime();
-		for(Reservation item:originlist)
+		for(Order item:originlist)
 		{
 			Timestamp itemtime = item.getTime();
 			if(finallist.size() != 0)
@@ -95,24 +101,24 @@ public String execute() throws Exception{
 	Resource tmp = new FileSystemResource("/Users/haoyuanji/Workspaces2/MyEclipse 10/ShopSystem/src/applicationContext.xml");
 	BeanFactory factory = new XmlBeanFactory(tmp);
 	UserDAO userDAO = (UserDAO) factory.getBean("UserDAO");
-	ReservationDAO reservationDAO = (ReservationDAO) factory.getBean("ReservationDAO");
-	UserReservationDAO userreservationDAO = (UserReservationDAO) factory.getBean("UserReservationDAO");
+	OrderDAO orderDAO = (OrderDAO) factory.getBean("OrderDAO");
+	UserOrderDAO userorderDAO = (UserOrderDAO) factory.getBean("UserOrderDAO");
 	ShopDAO shopDAO = (ShopDAO) factory.getBean("ShopDAO");
 	
-	List<Reservation> originalUserReservation = userreservationDAO.findByUser(currentuser);
+	List<Order> userallorder = userorderDAO.findByUser(currentuser);
+	List<Order> thisusercurrentorder = new ArrayList<Order>();
 	
-   for(Reservation notitem:originalUserReservation)
-   {
-	   Reservation realitem = reservationDAO.findById(notitem.getReservationId());
-	   Shop realshop = shopDAO.findById(realitem.getShop().getShopId());
-	   realitem.setShop(realshop);
-	   currentUserReservation.add(realitem);
-	   
-   }
-	
-	
-
-	 currentUserReservation = sortbytime(currentUserReservation);
+	for(Order item:userallorder)
+	{
+		Order realitem = orderDAO.findById(item.getOrderId());
+		Shop realshop = shopDAO.findById(realitem.getShop().getShopId());
+		realitem.setShop(realshop);
+		if(realitem.getType().equals("current"))
+			thisusercurrentorder.add(realitem);		
+	}
+   
+	thisusercurrentorder = sortbytime(thisusercurrentorder);
+	this.setCurrentcart(thisusercurrentorder);
 
       return SUCCESS;
 	}
