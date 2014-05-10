@@ -53,7 +53,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          
        }); 
      </script>
-
+      <% if(session.getAttribute("currentuser") == null) {%>
+      <script>
+            alert("Session expired, please re-Login!");
+            window.location = "Sign_in.jsp";    
+      </script>
+     <%} %>
      
 
 
@@ -96,11 +101,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <a href="#" class="bt-menu-trigger"><span>Menu</span></a>
         <ul>
           <li class="bt-icon"><a href="index.jsp">Home</a></li>
-          <li class="current bt-icon "><a href="About.jsp">About</a></li>
+          <li class="bt-icon "><a href="About.jsp">About</a></li>
          <li class="bt-icon"><a href="Menu.jsp">Menu</a></li>
          
          	  <% if(session.getAttribute("currentuser")==null) {%>
-                  <li class="current bt-icon"><a href="Sign_in.jsp">Sign In</a></li>
+                  <li class="bt-icon"><a href="Sign_in.jsp">Sign In</a></li>
              <%}else{%>
                   <li class="bt-icon"><a href="Profile.jsp">My Profile</a></li>
              <%} %> 	
@@ -123,7 +128,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="content"><div class="ic"></div>
 
   <div class="container_12">
-<!-- ======== left side bar ================== -->
+
 	<%@ include file="Leftbar.jsp" %>
      <div class = "grid_14">   
   	
