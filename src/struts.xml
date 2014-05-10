@@ -38,7 +38,8 @@
   </action>
   <action name = "Changepassword" class = "Actions.Changepassword">
   <result name = "success">Changepassword.jsp</result>
-  <result name = " fail">Changepassword.jsp </result>
+  <result name = "fail">Changepassword.jsp </result>
+  <result name = "input" >Sign_in.jsp </result>
   </action>
   </package> 
 </struts>   

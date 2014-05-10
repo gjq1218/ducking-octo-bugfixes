@@ -116,6 +116,14 @@ table.inner{border: 0px} */
         
      	
          <form name="profile" action = "Changepassword">
+            <s:fielderror cssStyle="color: red">
+            <s:param>empty_pwd</s:param>
+       		</s:fielderror>
+       		
+       		<s:fielderror cssStyle="color: red">
+            <s:param>success_change</s:param>
+        	</s:fielderror>
+        
 
 		<table> 
 		
@@ -124,20 +132,22 @@ table.inner{border: 0px} */
 	  
 		<tr>
 		<td>Current Password</td>
+		
+		
 		<td><input type="text" name="current_password" maxlength="30"/>
-		( At least 8 characters, 0-9, a-z, A-Z )
-		</td>
-		<td>
+
+		
 		 <s:fielderror cssStyle="color: red">
            <s:param>wrong_old_pwd</s:param>
         </s:fielderror>
+        
+      
 		</td>
 		</tr>
 	
 		<tr>
 		<td>New Password</td>
 		<td><input type="text" name="new_password" maxlength="30"/>
-		( At least 8 characters, 0-9, a-z, A-Z )
 		</td>
 		
 		</tr>
@@ -145,13 +155,14 @@ table.inner{border: 0px} */
 		<tr>
 		<td>Retry New Password</td>
 		<td><input type="text" name="retry_password" maxlength="30"/>
-		( Retry the new password )
-		</td>
-		
-		 <s:fielderror cssStyle="color: red">
+		<s:fielderror cssStyle="color: red">
            <s:param>wrong_new_pwd</s:param>
         </s:fielderror>
         
+		
+		</td>
+		
+		 
 		</tr>
 		 
 		 
