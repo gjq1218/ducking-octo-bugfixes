@@ -119,8 +119,8 @@ table.inner{border: 0px} */
 	<%@ include file="Leftbar.jsp" %>
      <div class = "grid_14">   
   	
-     	<h3></h3>
-     	
+    <!--  	<h3>View your Profile here.</h3> -->
+     	<h2></h2>
      	 <div class="profile_form">
               <h4>You can edit your profile here.</h4>
                 <div class="form_subtitle">View your profile.</div>

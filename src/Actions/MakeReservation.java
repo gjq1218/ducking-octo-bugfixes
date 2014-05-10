@@ -7,6 +7,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
@@ -90,12 +92,25 @@ public class MakeReservation extends ActionSupport {
 			return "fail";	
 		}
 		
-		if(this.getNumberofpeople() == null || "".equals(this.getNumberofpeople()))
+		if(this.getNumberofpeople() == null || "".equals(this.getNumberofpeople().trim()))
 		{
 			this.addFieldError("numberofpeople","Please fill number of people!");
 			return "fail";	
 			
 		}
+		
+        if(null != this.getNumberofpeople() && !("".equals(this.getNumberofpeople().trim())))
+        {
+           String check = "[0-9]+";  
+           Pattern regex = Pattern.compile(check);  
+           Matcher matcher = regex.matcher(this.getNumberofpeople().trim());  
+           boolean isMatched = matcher.matches(); 
+           if(!isMatched)
+           {
+     	      this.addFieldError("numberofpeople", "This is not an legal number!");
+     	      return "fail";
+           }
+        }
 		
 		if(this.getCustomername() == null || "".equals(this.getCustomername()))
 		{
@@ -113,7 +128,7 @@ public class MakeReservation extends ActionSupport {
 		String customername1 = this.getCustomername().trim();
 		
 		//Spring get bean
-		Resource res =new FileSystemResource("/Users/Gina/Programming/workspace_MyEclipse/ShopSystem/src/applicationContext.xml");
+		Resource res =new FileSystemResource("/Users/haoyuanji/Workspaces2/MyEclipse 10/ShopSystem/src/applicationContext.xml");
 		BeanFactory factory = new XmlBeanFactory(res); 
 
 		// get shop entity though shop name
@@ -134,7 +149,7 @@ public class MakeReservation extends ActionSupport {
 	       if(reservationDAO.findById(reservation_id) == null)
 	    	   isPossible = true;
 	   }
-		   
+		System.out.println(reservation_id);   
 		// transfer Date to Timestamp time.
 		   
 		   //disolve date
@@ -156,9 +171,12 @@ public class MakeReservation extends ActionSupport {
 		   SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 		   Date date = sdf.parse(finaltime);
 		   Timestamp arrivetime = new java.sql.Timestamp(date.getTime());
-		   //System.out.println(test1);
+		   if(arrivetime.before(new Date()))
+		   {
+			   this.addFieldError("arrivetime","Cannot make a reservation before current time!");
+			   return "fail";
 		    
-	
+		   }
 		   // create a new reservation
 		   Reservation newReservation = new Reservation(reservation_id, findshop.get(0), arrivetime, this.getNumberofpeople());
 		   reservationDAO.save(newReservation);

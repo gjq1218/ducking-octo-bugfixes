@@ -92,13 +92,68 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="clear"></div>
           </div>
       </div>
-       <script language="javascript">
-        window.location.href = "LoadUserReservation.action";
-      </script> 
 </header>
 
 <!--==============================Content=================================-->
+<div class="content"><div class="ic"></div>
 
+  <div class="container_12">
+<%@include file = "Leftbar.jsp" %>
+
+<div class = "grid_14">   
+  	
+     	<h2></h2>
+     	
+     	 <div class="profile_form">
+            <div class="form_subtitle">View your Reservation History</div>
+        
+ 	
+ 	    
+		<table> 
+		<tr>
+		<td align = "center">
+		   <b>Reservation ID</b>
+		</td>
+		<td align = "center">
+           <b>Shop</b>
+        </td>
+        <td align = "center">
+           <b>Reservation Time</b>
+        </td>
+        <td  align = "center">
+           <b>How many People</b>
+         </td>
+        
+		</tr>
+		 <s:iterator id="u" value="currentUserReservation">
+		<!----- Username ---------------------------------------------------------->
+		
+	  
+		<tr>
+		<td align = "center">
+		   <s:property value="#u.getReservationId()"/>
+		</td>
+		<td align = "center">
+           <s:property value="#u.getShop().getShopName()"/>	
+        </td>
+        <td align = "center">
+           <s:property value="#u.getTime().toString()"/>
+        </td>
+        <td  align = "center">
+           <s:property value="#u.getPeoplenumber()"/>
+         </td>
+        
+		</tr>
+        
+		</s:iterator>
+		</table>
+		
+		     	
+      </div>	
+     	
+     </div>  
+</div>
+</div>
 <!--==============================footer=================================-->
 
 <footer>    

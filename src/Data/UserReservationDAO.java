@@ -1,5 +1,6 @@
 package Data;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.LockMode;
 import org.hibernate.criterion.DetachedCriteria;
@@ -94,6 +95,32 @@ public class UserReservationDAO extends HibernateDaoSupport {
 
 	}
 
+
+//	public List findByReservation(Object reservation) {
+//		return findByProperty("reservation_id", reservation);
+//	}
+	
+	public List findByUser(User user) {
+		log.debug("finding specific User's Reservation instances");
+		try {
+			List<UserReservation> alluserReservations = findAll();
+			List<Reservation> thisuserReservations = new ArrayList<Reservation>();
+			for(UserReservation item:alluserReservations)
+			{
+				if(item.getId().getUser().getUserId().equals(user.getUserId()))
+				{
+					thisuserReservations.add(item.getId().getReservation());
+				}
+			}
+			return thisuserReservations;
+			//String queryString = "from UserReservation";
+			//return getHibernateTemplate().find(queryString);
+		} catch (RuntimeException re) {
+			log.error("find all failed", re);
+			throw re;
+		}
+	}
+	
 	public List findAll() {
 		log.debug("finding all UserReservation instances");
 		try {
