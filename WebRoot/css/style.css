@@ -270,7 +270,15 @@ a:hover {
 }
 .wrapper, .extra_wrapper {
 	overflow: hidden;
+	text-align: justify;
+	margin-right: 15px;
 }
+
+.extra_wrapper1 {
+	overflow: hidden;
+
+}
+
 .clear {
 	float: none !important;
 	clear: both;

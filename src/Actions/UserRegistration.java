@@ -106,14 +106,14 @@ public class UserRegistration extends ActionSupport{
    
    private String checkpossible() throws NoSuchAlgorithmException {
 		// TODO Auto-generated method stub
-	   Resource res =new FileSystemResource("/Users/haoyuanji/Workspaces2/MyEclipse 10/ShopSystem/src/applicationContext.xml");
+	   Resource res =new FileSystemResource("/Users/Gina/Programming/workspace_MyEclipse/ShopSystem/src/applicationContext.xml");
 	   BeanFactory factory = new XmlBeanFactory(res); 
 	   UserDAO userDAO = (UserDAO) factory.getBean("UserDAO");
 	   String email1 = this.getRegisemail().trim();
 	   String username1 = this.getRegisusername().trim();
 	   String password1 = this.getRegispassword().trim();
 	   
-	   List<User> finding = userDAO.findByEmail(email1);
+	List<User> finding = userDAO.findByEmail(email1);
 	   
 	   if (finding.isEmpty())
 	   {

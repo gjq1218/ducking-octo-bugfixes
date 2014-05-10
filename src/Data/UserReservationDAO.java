@@ -2,6 +2,8 @@ package Data;
 
 import java.util.List;
 import org.hibernate.LockMode;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -77,16 +79,19 @@ public class UserReservationDAO extends HibernateDaoSupport {
 	}
 
 	public List findByProperty(String propertyName, Object value) {
-		log.debug("finding UserReservation instance with property: "
-				+ propertyName + ", value: " + value);
+		log.debug("finding Account instance with property: " + propertyName
+				+ ", value: " + value);
 		try {
-			String queryString = "from UserReservation as model where model."
-					+ propertyName + "= ?";
-			return getHibernateTemplate().find(queryString, value);
+			DetachedCriteria cr = DetachedCriteria.forClass(UserReservation.class);
+			cr.add(Restrictions.like(propertyName, value));
+			
+			return getHibernateTemplate().findByCriteria(cr);
+
 		} catch (RuntimeException re) {
 			log.error("find by property name failed", re);
 			throw re;
 		}
+
 	}
 
 	public List findAll() {

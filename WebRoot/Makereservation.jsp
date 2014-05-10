@@ -1,4 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="s" uri="/struts-tags" %> 
+
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -96,7 +98,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <li class="bt-icon"><a href="index.jsp">Home</a></li>
           <li class="current bt-icon "><a href="About.jsp">About</a></li>
          <li class="bt-icon"><a href="Menu.jsp">Menu</a></li>
-         <li class="bt-icon"><a href="Sign_in.jsp">Sign In</a></li>
+         
+         	  <% if(session.getAttribute("currentuser")==null) {%>
+                  <li class="current bt-icon"><a href="Sign_in.jsp">Sign In</a></li>
+             <%}else{%>
+                  <li class="bt-icon"><a href="Profile.jsp">My Profile</a></li>
+             <%} %> 	
+        
          <li class="bt-icon"><a href="Reservation.jsp">Reservation</a></li>
          <li class="bt-icon"><a href="Contacts.jsp">Contacts</a></li>
        
@@ -126,7 +134,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <div class="form_subtitle">Make a reservation.</div>
         
      	
-         <form name="profile" class = "datepicker">
+         <form name="make_reservation" class = "datepicker" action = "MakeReservation" method = "post">
  	
  	
 		<table> 
@@ -139,17 +147,34 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<td>
 		<select name="restaurant_name" id="restaurant_name">
 		<option value="-1">Locations:</option>
-		<option value="1">Baltimore</option>
-		<option value="2">Beijing</option>
-		<option value="3">New York</option>
-		<option value="4">San Francisco</option>
+		<option value="Baltimore">Baltimore</option>
+		<option value="Beijing">Beijing</option>
+		<option value="New York">New York</option>
+		<option value="San Francisco">San Francisco</option>	
 		</select>
+				
+
+		</td>
+		
+		<td>
+			 <s:fielderror cssStyle="color: red">
+	           <s:param>whichrestaurant</s:param>
+	        </s:fielderror>
+		
+		</td>
+		<tr>
  
 	  	<!----- Date ---------------------------------------------------------->
 		<tr>
 		<td>Date:</td>
 
 		<td><input type="text" name="date" id = "datepicker" maxlength="30"/>
+		</td>
+		
+		<td>
+			 <s:fielderror cssStyle="color: red">
+	           <s:param>reservedate</s:param>
+	        </s:fielderror>
 		</td>
 		</tr>
 
@@ -158,37 +183,63 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<tr>
 		<td>Time</td>
 		<td>
-		<select name="arrival_time" id="arrival_time">
+		<select name="arrival_time" id="arrival_time" >
 		<option value="-1">Arrival Time:</option>
-		<option value="1">10:00 am</option>
-		<option value="2">11:00 am</option>
-		<option value="3">12:00 am</option>
-		<option value="4">1:00 pm</option>
-		<option value="5">2:00 pm</option>
-		<option value="6">3:00 pm</option>
-		<option value="7">4:00 pm</option>
-		<option value="8">5:00 pm</option>
-		<option value="9">6:00 pm</option>
-		<option value="10">7:00 pm</option>
-		<option value="11">8:00 pm</option>
-		<option value="12">9:00 pm</option>
-		<option value="13">10:00 pm</option>
-			
-			
-					
+		<option value="10:00 am">10:00 am</option>
+		<option value="11:00 am">11:00 am</option>
+		<option value="12:00 am">12:00 am</option>
+		<option value="01:00 pm">1:00 pm</option>
+		<option value="02:00 pm">2:00 pm</option>
+		<option value="03:00 pm">3:00 pm</option>
+		<option value="04:00 pm">4:00 pm</option>
+		<option value="05:00 pm">5:00 pm</option>
+		<option value="06:00 pm">6:00 pm</option>
+		<option value="07:00 pm">7:00 pm</option>
+		<option value="08:00 pm">8:00 pm</option>
+		<option value="09:00 pm">9:00 pm</option>
+		<option value="11:00 pm">10:00 pm</option>
 		</select>
+		</td>
+		<td> 
+			<s:fielderror cssStyle="color: red">
+	           <s:param>arrivetime</s:param>
+	        </s:fielderror>
+		</td>
  
 		</tr>
 		
 		<tr>
+		<td>Number of people </td>
+		<td><input type="text" name="numberofpeople" maxlength="30"/>
+		</td>
+		
+		<td> 
+			<s:fielderror cssStyle="color: red">
+	           <s:param>numberofpeople</s:param>
+	        </s:fielderror>
+		</td>
+		</tr>
+		
+		
+		<tr>
 		<td>Customer Name </td>
-		<td><input type="text" name="retry_password" maxlength="30"/>
+		<td><input type="text" name="customername" maxlength="30"/>
+		</td>
+		
+		<td> 
+			<s:fielderror cssStyle="color: red">
+	           <s:param>customername</s:param>
+	        </s:fielderror>
 		</td>
 		</tr>
 		 
 		 
-		
-		 
+<!-- 	<tr>
+		<td colspan="5" align="right" >
+		<a href="editprofile.jsp"><input type="button" value="Edit" class = "profile">
+		</td>
+		</tr>
+		  -->
 		
 		<!----- Submit and Reset ------------------------------------------------->
 		<tr>

@@ -22,5 +22,13 @@
   <result name="fail">editprofile.jsp</result>
   <result name="input">editprofile.jsp</result>
   </action>
+  
+  <action name = "MakeReservation" class = "Actions.MakeReservation">
+  <result name = "success"> Viewreservation.jsp</result>
+  <result name = "fail"> Makereservation.jsp</result>  
+  </action>
+  
+  
+  
   </package> 
 </struts>    
