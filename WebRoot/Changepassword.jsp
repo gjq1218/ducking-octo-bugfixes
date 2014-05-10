@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="s" uri="/struts-tags" %> 
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -114,9 +115,8 @@ table.inner{border: 0px} */
                 <div class="form_subtitle">Change your password.</div>
         
      	
-         <form name="profile">
- 	
- 	
+         <form name="profile" action = "Changepassword">
+
 		<table> 
 		
 		<!----- Username ---------------------------------------------------------->
@@ -127,6 +127,11 @@ table.inner{border: 0px} */
 		<td><input type="text" name="current_password" maxlength="30"/>
 		( At least 8 characters, 0-9, a-z, A-Z )
 		</td>
+		<td>
+		 <s:fielderror cssStyle="color: red">
+           <s:param>wrong_old_pwd</s:param>
+        </s:fielderror>
+		</td>
 		</tr>
 	
 		<tr>
@@ -134,6 +139,7 @@ table.inner{border: 0px} */
 		<td><input type="text" name="new_password" maxlength="30"/>
 		( At least 8 characters, 0-9, a-z, A-Z )
 		</td>
+		
 		</tr>
 		
 		<tr>
@@ -141,6 +147,11 @@ table.inner{border: 0px} */
 		<td><input type="text" name="retry_password" maxlength="30"/>
 		( Retry the new password )
 		</td>
+		
+		 <s:fielderror cssStyle="color: red">
+           <s:param>wrong_new_pwd</s:param>
+        </s:fielderror>
+        
 		</tr>
 		 
 		 
