@@ -2,9 +2,6 @@ package Actions;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
@@ -13,7 +10,6 @@ import org.springframework.core.io.Resource;
 
 import Data.ShopAdmin;
 import Data.ShopAdminDAO;
-import Data.User;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;

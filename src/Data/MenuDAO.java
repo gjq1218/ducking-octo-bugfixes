@@ -3,6 +3,8 @@ package Data;
 import java.util.List;
 import java.util.Set;
 import org.hibernate.LockMode;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -79,12 +81,14 @@ public class MenuDAO extends HibernateDaoSupport {
 	}
 
 	public List findByProperty(String propertyName, Object value) {
-		log.debug("finding Menu instance with property: " + propertyName
+		log.debug("finding Account instance with property: " + propertyName
 				+ ", value: " + value);
 		try {
-			String queryString = "from Menu as model where model."
-					+ propertyName + "= ?";
-			return getHibernateTemplate().find(queryString, value);
+			DetachedCriteria cr = DetachedCriteria.forClass(Menu.class);
+			cr.add(Restrictions.like(propertyName, value));
+			
+			return getHibernateTemplate().findByCriteria(cr);
+
 		} catch (RuntimeException re) {
 			log.error("find by property name failed", re);
 			throw re;

@@ -29,7 +29,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           $().UItoTop({ easingType: 'easeOutQuart' });
         }); 
      </script>
-     <% session.removeAttribute("currentuser"); %>
+     <% session.removeAttribute("currentuser");
+        session.removeAttribute("currentorder");
+        session.removeAttribute("memunum"); %>
      </head>
      <body class="page1">
 

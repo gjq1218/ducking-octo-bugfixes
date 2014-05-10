@@ -585,7 +585,15 @@ a.col1:hover, .col1>a:hover {
 
 .col3{
 	color: #5f5e4e;
+	/* gina */
+	margin-left:auto;
+	margin-right:auto;
+	
 }
+/* gina */
+/* .buy{
+	align-content:center;
+} */
 
 .tab-content:after {
 	clear: both;

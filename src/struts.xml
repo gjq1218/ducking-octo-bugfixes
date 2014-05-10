@@ -22,13 +22,14 @@
   <result name="fail">editprofile.jsp</result>
   <result name="input">editprofile.jsp</result>
   </action>
-  
   <action name = "MakeReservation" class = "Actions.MakeReservation">
   <result name = "success"> Viewreservation.jsp</result>
   <result name = "fail"> Makereservation.jsp</result>  
+  </action> 
+  <action name = "Buyneworder" class="Actions.Buyneworder">
+  <result name="success">Menu.jsp</result>   
+  <result name="fail">Menu.jsp</result>
+  <result name="input">Sign_in.jsp</result>
   </action>
-  
-  
-  
   </package> 
-</struts>    
+</struts>   
