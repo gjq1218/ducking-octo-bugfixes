@@ -127,7 +127,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <footer>    
   <div class="container_12">
     <div class="grid_6 prefix_3">
-      <a href="index.html" class="f_logo"><img src="images/f_logo.png" alt=""></a>
+      <a href="index.jsp" class="f_logo"><img src="images/f_logo.png" alt=""></a>
       <div class="copy">
       &copy; Copyright &copy; 2014.Author: Jiaqi GAO Company name All rights reserved.
       </div>
