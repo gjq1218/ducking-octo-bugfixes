@@ -69,7 +69,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <a href="http://www.tumblr.com/share" class="last4"></a> 
 
     </div>
-    <h1><a href="index.html"><img src="images/logo.png" alt="Boo House"></a> </h1>
+    <h1><a href="index.jsp"><img src="images/logo.png" alt="Boo House"></a> </h1>
     <div class="menu_block">
 
 
@@ -77,7 +77,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <a href="#" class="bt-menu-trigger"><span>Menu</span></a>
         <ul>
           <li class="bt-icon"><a href="index.jsp">Home</a></li>
-          <li class="bt-icon "><a href="Sign_in.jsp">About</a></li>
+          <li class="bt-icon "><a href="About.jsp">About</a></li>
          <li class="bt-icon"><a href="Menu.jsp">Menu</a></li>
         
              <% if(session.getAttribute("currentuser")==null) {%>

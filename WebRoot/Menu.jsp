@@ -60,7 +60,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <a href="http://www.tumblr.com/share" class="last4"></a> 
 
     </div>
-    <h1><a href="index.html"><img src="images/logo.png" alt="Boo House"></a> </h1>
+    <h1><a href="index.jsp"><img src="images/logo.png" alt="Boo House"></a> </h1>
     <div class="menu_block">
 
 

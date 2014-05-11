@@ -35,6 +35,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         }); 
      </script>
  
+	   <% session.removeAttribute("currentuser");
+       session.removeAttribute("currentorder");
+       session.removeAttribute("memunum"); 
+       session.removeAttribute("currentshopadmin");%>
+      <%
+        session.setMaxInactiveInterval(120);    
+      %>
+ 
      </head>
      <body class="page1">
 

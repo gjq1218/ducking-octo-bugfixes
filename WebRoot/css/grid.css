@@ -391,6 +391,17 @@ border:1px #d7d7b1 dashed;
 position:relative;
 }
 
+.admin_profile_form{
+width:650px;
+float:left;
+padding:25px;
+margin:0px 0 0 15px;
+_margin:-100px 0 0 5px;
+border:1px #d7d7b1 dashed;
+position:relative;
+
+}
+
 
 /* .errormsg {
 margin: .5em 0 0;
@@ -477,7 +488,20 @@ float:right;
 color:#FFFFFF;
 background-color:#d7d7b1;
 
+
 /* background:url(images/register_bt.jpg) no-repeat center; */
+}
+
+input.register2{
+width: 85px;
+height: 35px;
+border: none;
+cursor: pointer;
+/* text-align: left; */
+float: right;
+color: #FFFFFF;
+background-color: #d7d7b1;
+margin-right: -275px;
 }
 
 input.profile{

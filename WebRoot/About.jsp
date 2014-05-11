@@ -61,7 +61,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <a href="http://www.tumblr.com/share" class="last4"></a> 
 
     </div>
-    <h1><a href="index.html"><img src="images/logo.png" alt="Boo House"></a> </h1>
+    <h1><a href="index.jsp"><img src="images/logo.png" alt="Boo House"></a> </h1>
     <div class="menu_block">
 
 
@@ -100,26 +100,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <h3>About Us</h3>
       <img src="images/page2_img.jpg" alt="" class="img_inner fleft">
       <div class="extra_wrapper">
-        <p class="col1">Following the <span><a href="http://blog.templatemonster.com/free-website-templates/" rel="dofollow">link</a></span>, you’ll learn more about this goodie produced by <br> TemplateMonster.com. </p>
-        <p class="col1">Want to get more designs of this kind? Check out the category of premium <span><a href="http://www.templatemonster.com/category/cafe-and-restaurant-website-templates/" rel="nofollow">Cafe &amp; Restaurant templates</a></span>.</p>
-        <p>Aliquam nibh ante, egestas id dictum modo luctus libero. Praesent faucibus malesorem ipsum dolor sit amet, consecteturer. </p>
+        <p><font class="col1">ABOUT THE FOUNDER:</font><br>Mongolia's Hot Pot restaurant was built in 2012. It's owned by GAO's Family. The biggest shareholder is Mr. MengMin GAO and Miss. Jiaqi GAO. </p>
+        <p><font class="col1">WHAT TO EXCEPT:</font><br>For those who put so much of ourselves into Mongolia's Hot Pot, it's more than our work - it's our home. </p>
       </div>
-       at magna non nunc tristique rhoncus. Aliquam nibh ante, egestas id dictum ammodo luctus libero. Praesent faucibus malesuada faucibus. Lorem ipsum dolor sit ametconsectetur adipiscing elit. Nullam consectetur orci sed nulla facilisis consequat. 
+		And that's how we try to welcome you - as a guest in a home we love, that we're proud of and eager for you to love, too. We want you to feel special when you're here,
+		we want you to expect that everthing, every last detail is taken care of for you so that your are welcomed, relaxed and at east. And most of all happy.
     </div>
     
     <div class="grid_4">
       <h3>Features</h3>
-      <p class="col1 pad1">Magna non nunc tristiquencus. Aliquam nibh ante, egestas id dictum modo luctus libero. </p>
-      <p class="pad1">Dolor sit amet, consectetureripiscingelit. Nullam consectetur orci se nullafaci.</p>
+      <p class="col1 pad1">We offer the most traditional Chinese Hot Pot and our homemade special menus.</p>
+      <p class="col1 pad1"> We developed 6 best flavors of the Hot Pot base soups which are the spirit of our Hot Pot taste.</p>
       <ul class="list">
-        <li><a href="#">Curabitur Vellore Sit</a></li>
-        <li><a href="#">Eu Consectetur Ligula</a></li>
-        <li><a href="#">Dui eros Laoreet Sit amet </a></li>
-        <li><a href="#">Estvel Dertolino</a></li>
-        <li><a href="#">Commodo Venenatis Erossce</a></li>
-        <li><a href="#">Adipiscing Quam id Risus </a></li>
-        <li><a href="#">Sagittis  Consequat Lacus </a></li>
-        <li><a href="#">Onterdumoin ut </a></li>
+        <li><a href="#">6 Best Flavor Soup Base</a></li>
+        <li><a href="#">Homemade Specialty MeatBalls</a></li>
+        <li><a href="#">Handmade Mashed Beef </a></li>
+        <li><a href="#">Fruit Lce Kacang</a></li>
+        <li><a href="#">Homemade Specialty Seasoning</a></li>
+        <li><a href="#">Hand-Pulled Noodles</a></li>
+        <li><a href="#">Most Fresh Seafood</a></li>
+        <li><a href="#">Specialty Tofu </a></li>
       </ul>
     </div>
     
@@ -129,8 +129,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="grid_3">
       <div class="box maxheight">
         <img src="images/page2_img1.jpg" alt="">
-        <div class="title"><a href="#">Emma Smith</a></div>
-Deneger convallis orci vel mi delaoreet, at ornare lorem consequat. Phasellus era nisl auctor vel velitero. 
+        <div class="title"><a href="#">Barack Obama</a></div>
+		Our best Chef who investigated the 6 favors of the Hot Pot Soups.His achievement to our restaurant is unbelieveable! 
+			
 
       </div>
     </div>
@@ -138,22 +139,21 @@ Deneger convallis orci vel mi delaoreet, at ornare lorem consequat. Phasellus er
       <div class="box maxheight">
         <img src="images/page2_img2.jpg" alt="">
         <div class="title"><a href="#">Thomas Nelson</a></div>
-Reenteger convallis orci veli saelaoreet, at ornare lorem konsequat. Khasellus era  jauctor vel veliteru.  
+		He invested our famous Hand-Pulled Noodles and created the amazing performace to show the process of making noodles!
       </div>
     </div>
     <div class="grid_3">
       <div class="box maxheight">
         <img src="images/page2_img3.jpg" alt="">
         <div class="title"><a href="#">Linda Grey</a></div>
-Ortolieger convallis omi tem more, at ornare loren coatr. Lasellus era nisl auctor vel veliterolsed pharetr. 
-
+	Grey is our Baker and dessert designer who invested the friut Ice Kacang which is really popular to our customers!Definitely Try it!
       </div>
     </div>
     <div class="grid_3">
       <div class="box maxheight">
         <img src="images/page2_img4.jpg" alt="">
         <div class="title"><a href="#">Richard Cox</a></div>
-Gonvallis orci vel mi oreilat otornare lorem consequat. Kllus era nisl auctor veli detelolvenenatis nullo. 
+	Cox is our most senior chef and he invested 15 different flavors of Mongolias's homemade specialty and homemade seasoning! 
 
       </div>
     </div>
