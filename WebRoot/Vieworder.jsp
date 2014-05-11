@@ -92,85 +92,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="clear"></div>
           </div>
       </div>
+   <script language="javascript">
+      window.location.href = "ViewOrder.action";
+   </script> 
 </header>
 
 <!--==============================Content=================================-->
-<div class="content"><div class="ic"></div>
 
-  <div class="container_12">
-<%@include file = "Leftbar.jsp" %>
-
-<div class = "grid_14">   
-  	
-     	<h2>Your Unchecked orders</h2>
-     	
-     	 <div class="profile_form">
-            <div class="form_subtitle">View your Cart</div>
-        
- 	
- 	    
-		<table> 
-		<tr>
-		<td align = "center">
-		   <b>ID</b>
-		   <b>(Click to Check)</b>
-		</td>
-		<td align = "center">
-           <b>Shop</b>
-        </td>
-        <td align = "center">
-           <b>Order Time</b>
-        </td>
-        <td  align = "center">
-           <b>Delivery Address</b>
-         </td>
-         <td  align = "center">
-           <b>Overall Price</b>
-         </td>
-         <td  align = "center">
-           <b>Continue Shopping</b>
-         </td>
-		</tr>
-		 <s:iterator id="u" value="currentcart" status = "rowstatus">
-		<tr>
-		<td align = "center" >
-		<s:a href = "CartSeeOrder.action?orderid=%{#u.getOrderId()}">
-		   <s:property value="#u.getOrderId()"/>
- 		</s:a>
-		</td>
-		<td align = "center">
-           <s:property value="#u.getShop().getShopName()"/> (Could be changed)
-        </td>
-        <td align = "center">
-           <s:property value="#u.getTime().toString()"/>
-        </td>
-        <td  align = "center">
-           <s:property value="#u.getDeliveryAddress()"/>
-         </td>
-        <td  align = "center">
-           <s:property value="#u.getOverallPrice()"/>
-         </td>
-         <td  align = "center">
-          <s:a href = "ContinueShopping.action?orderid=%{#u.getOrderId()}">
-           Continue...
-          </s:a>
-         </td>
-         <s:if test = "#u.getOrderId() == #session.currentorder.getOrderId()">
-           <td style="background: red" align = "center">
-              <b>Current Order</b>
-           </td>
-         </s:if>
-		</tr>
-        
-		</s:iterator>
-		</table>
-		
-		     	
-      </div>	
-     	
-     </div>  
-</div>
-</div>
 <!--==============================footer=================================-->
 
 <footer>    

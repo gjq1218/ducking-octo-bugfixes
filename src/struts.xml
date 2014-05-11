@@ -48,5 +48,45 @@
   <result name = "success">Menu.jsp</result>
   <result name = "input">Sign_in.jsp </result>
   </action>
+  <action name = "CartSeeOrder" class = "Actions.CartSeeOrder">
+  <result name = "success">Cartdetails.jsp</result>
+  <result name = "input">Sign_in.jsp </result>
+  </action>
+  <action name = "CancelOrder" class = "Actions.CancelOrder">
+  <result name = "success">Viewcurrentcart.jsp</result>
+  <result name = "input">Sign_in.jsp </result>
+  </action>
+  <action name = "CheckOut" class = "Actions.CheckOut">
+  <result name = "success">Viewcurrentcart.jsp</result>
+  <result name = "input">Sign_in.jsp </result>
+  </action>
+  <action name = "Deletemenu" class = "Actions.Deletemenu">
+  <result type = "chain" name = "success">CartSeeCurrentOrder</result>
+  <result name = "input">Sign_in.jsp </result>
+  </action>
+  <action name = "CartSeeCurrentOrder" class = "Actions.CartSeeCurrentOrder">
+  <result name = "success">Cartdetails.jsp</result>
+  <result name = "input">Sign_in.jsp </result>
+  </action>
+  <action name = "ViewOrder" class = "Actions.ViewOrder">
+  <result name = "success">Orderresult.jsp</result>
+  <result name = "input">Sign_in.jsp </result>
+  </action>
+  <action name = "OrderSeeMenu" class = "Actions.OrderSeeMenu">
+  <result name = "success">Orderdetails.jsp</result>
+  <result name = "input">Sign_in.jsp </result>
+  </action>
+  <action name = "CancelOldOrder" class = "Actions.CancelOldOrder">
+  <result name = "success">Vieworder.jsp</result>
+  <result name = "fail">Vieworder.jsp</result>
+  <result name = "input">Sign_in.jsp </result>
+  </action>
+  <action name = "AdminLoadUserReservation" class="Actions.AdminLoadUserReservation">
+  <result name ="success">Adminreservationresult.jsp</result>   
+  <result name ="input">Adminlogin.jsp</result>
+  </action>
+  <action name = "AdminViewUser" class = "Actions.AdminViewUser" >
+  <result name = "success"> Adminviewuserdetail.jsp</result>
+  </action>
   </package> 
 </struts>   
