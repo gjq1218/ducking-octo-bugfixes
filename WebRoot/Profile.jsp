@@ -182,7 +182,7 @@ table.inner{border: 0px} */
 		<!----- Submit and Reset ------------------------------------------------->
 		<tr>
 		<td colspan="5" align="right" >
-		<a href="editprofile.jsp"><input type="button" value="Edit" class = "profile"></a>
+		<a href="Editprofile.jsp"><input type="button" value="Edit" class = "profile"></a>
 		</td>
 		</tr>
 		</table>
