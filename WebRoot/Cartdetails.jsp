@@ -102,67 +102,98 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <div class = "grid_14">   
   	
-     	<h2>Your Unchecked orders</h2>
+     	<h2>Your Order Details</h2>
      	
      	 <div class="profile_form">
-            <div class="form_subtitle">View your Cart</div>
+            <div class="form_subtitle">Order:<s:property value = "#session.currentorder.getOrderId()"/></div>
         
  	
  	    
 		<table> 
 		<tr>
 		<td align = "center">
-		   <b>ID</b>
-		   <b>(Click to Check)</b>
+		   <b>Menu ID</b>
 		</td>
 		<td align = "center">
-           <b>Shop</b>
+           <b>Name</b>
         </td>
         <td align = "center">
-           <b>Order Time</b>
+           <b>Category</b>
         </td>
         <td  align = "center">
-           <b>Delivery Address</b>
+           <b>Price</b>
          </td>
          <td  align = "center">
-           <b>Overall Price</b>
          </td>
          <td  align = "center">
-           <b>Continue Shopping</b>
          </td>
 		</tr>
-		 <s:iterator id="u" value="currentcart" status = "rowstatus">
+	  <s:iterator id="h" value="thisordermenu" status = "rowstatus">
 		<tr>
 		<td align = "center" >
-		<s:a href = "CartSeeOrder.action?orderid=%{#u.getOrderId()}">
-		   <s:property value="#u.getOrderId()"/>
+		<s:a>
+		   <s:property value="#h.getMenuId()"/>
  		</s:a>
 		</td>
 		<td align = "center">
-           <s:property value="#u.getShop().getShopName()"/> (Could be changed)
+           <s:property value="#h.getItemName()"/>	
         </td>
         <td align = "center">
-           <s:property value="#u.getTime().toString()"/>
+           <s:property value="#h.getCategory()"/>
         </td>
         <td  align = "center">
-           <s:property value="#u.getDeliveryAddress()"/>
+           <s:property value="#h.getPrice().toString()"/>
          </td>
-        <td  align = "center">
-           <s:property value="#u.getOverallPrice()"/>
+         <td style = "color:red" align = "center">
+         <s:a href = "Deletemenu.action?menuid=%{#h.getMenuId()}">
+           Delete
+         </s:a>  
          </td>
-         <td  align = "center">
-          <s:a href = "ContinueShopping.action?orderid=%{#u.getOrderId()}">
-           Continue...
-          </s:a>
-         </td>
-         <s:if test = "#u.getOrderId() == #session.currentorder.getOrderId()">
-           <td style="background: red" align = "center">
-              <b>Current Order</b>
-           </td>
-         </s:if>
 		</tr>
         
 		</s:iterator>
+		<tr>
+		   <td>
+		   </td>
+		   <td>
+		   </td>
+		   <td>
+		   </td>
+		   <td>
+		   </td>
+		   <td>		   
+		      Overall Price:  <s:property value = "#session.currentorder.getOverallPrice()"/>
+		    </td>
+		</tr>
+	    <tr>
+		   <td>
+		   
+		   </td>
+		   <td>
+		   </td>
+		   <td>
+		   </td>
+		   <td align = "right">
+		   
+		   </td>
+		   <td align = "center">		  	      
+		    </td>
+		</tr>
+	    <tr>
+	    
+		<td colspan="5" align="right" >
+		<s:a href="CancelOrder.action?orderid=%{#session.currentorder.getOrderId()}">
+		     <input type="button" value="Cancel Order" class = "profile"></s:a>
+		<s:a href="Checkout.jsp">
+		     <input type="button" value="Check Out" class = "profile"></s:a>
+		</td>
+		</tr>
+	   <tr>
+	    
+		<td colspan="5" align="right" >
+		  <a href="Viewcurrentcart.jsp"><input type="button" value="Return to Cart" class = "profile"></a>
+		</td>
+		</tr>
 		</table>
 		
 		     	

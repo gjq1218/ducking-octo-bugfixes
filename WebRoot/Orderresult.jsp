@@ -102,10 +102,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <div class = "grid_14">   
   	
-     	<h2>Your Unchecked orders</h2>
+     	<h2>Your Checked Orders</h2>
      	
      	 <div class="profile_form">
-            <div class="form_subtitle">View your Cart</div>
+            <div class="form_subtitle">View Your Order History</div>
         
  	
  	    
@@ -113,7 +113,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<tr>
 		<td align = "center">
 		   <b>ID</b>
-		   <b>(Click to Check)</b>
+		   <b>(Click to see details)</b>
 		</td>
 		<td align = "center">
            <b>Shop</b>
@@ -128,13 +128,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            <b>Overall Price</b>
          </td>
          <td  align = "center">
-           <b>Continue Shopping</b>
+           <b>Order Status</b>
          </td>
 		</tr>
-		 <s:iterator id="u" value="currentcart" status = "rowstatus">
+		 <s:iterator id="u" value="currentorder">
 		<tr>
 		<td align = "center" >
-		<s:a href = "CartSeeOrder.action?orderid=%{#u.getOrderId()}">
+		<s:a href = "OrderSeeMenu.action?orderid=%{#u.getOrderId()}">
 		   <s:property value="#u.getOrderId()"/>
  		</s:a>
 		</td>
@@ -151,15 +151,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            <s:property value="#u.getOverallPrice()"/>
          </td>
          <td  align = "center">
-          <s:a href = "ContinueShopping.action?orderid=%{#u.getOrderId()}">
-           Continue...
-          </s:a>
+           <s:property value="#u.getType()"/>
          </td>
-         <s:if test = "#u.getOrderId() == #session.currentorder.getOrderId()">
-           <td style="background: red" align = "center">
-              <b>Current Order</b>
-           </td>
-         </s:if>
 		</tr>
         
 		</s:iterator>

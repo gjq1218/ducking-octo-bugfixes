@@ -11,7 +11,7 @@
         <li><a href="Menu.jsp">Continue Shopping</a></li>
         <li><a href="Viewreservation.jsp">View your Reservation</a></li>
         <li><a href="Viewcurrentcart.jsp">View your cart</a></li>
-        <li><a href="#">View your order </a></li>
+        <li><a href="Vieworder.jsp">View your order </a></li>
         <li><a href="Changepassword.jsp">Change password </a></li>
         <li><a href="Sign_in.jsp"><u>Sign out</u></a></li>
       
