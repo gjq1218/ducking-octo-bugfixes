@@ -19,8 +19,8 @@
   </action>
   <action name="Editprofile" class="Actions.Editprofile">   
   <result name="success">Profile.jsp</result>   
-  <result name="fail">editprofile.jsp</result>
-  <result name="input">editprofile.jsp</result>
+  <result name="fail">Editprofile.jsp</result>
+  <result name="input">Editprofile.jsp</result>
   </action>
   <action name = "MakeReservation" class = "Actions.MakeReservation">
   <result name = "success"> Viewreservation.jsp</result>
