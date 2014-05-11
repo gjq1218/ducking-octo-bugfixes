@@ -44,5 +44,9 @@
   <result name = "success">Cartresult.jsp</result>
   <result name = "input">Sign_in.jsp </result>
   </action>
+  <action name = "ContinueShopping" class = "Actions.ContinueShopping">
+  <result name = "success">Menu.jsp</result>
+  <result name = "input">Sign_in.jsp </result>
+  </action>
   </package> 
 </struts>   

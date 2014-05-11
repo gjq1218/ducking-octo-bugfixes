@@ -1,5 +1,6 @@
 package Data;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.LockMode;
 import org.slf4j.Logger;
@@ -89,6 +90,26 @@ public class OrderMenuDAO extends HibernateDaoSupport {
 		}
 	}
 
+	public List findByOrder(Order order) {
+		log.debug("finding specific User's Reservation instances");
+		try {
+			List<OrderMenu> allOrderMenus = findAll();
+			List<Menu> thisorderMenus = new ArrayList<Menu>();
+			for(OrderMenu item:allOrderMenus)
+			{
+				
+				if(item.getId().getOrder().getOrderId().equals(order.getOrderId()))
+				{
+					thisorderMenus.add(item.getId().getMenu());
+				}
+			}
+			return thisorderMenus;
+		} catch (RuntimeException re) {
+			log.error("find all failed", re);
+			throw re;
+		}
+	}
+	
 	public List findAll() {
 		log.debug("finding all OrderMenu instances");
 		try {
