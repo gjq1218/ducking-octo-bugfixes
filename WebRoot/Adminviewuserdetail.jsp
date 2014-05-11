@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="s" uri="/struts-tags" %> 
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -7,8 +8,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE html>
 <html lang="en">
      <head>
-     <title>Welcome to Mongolias's Hot Pot!</title>
-     <meta charset="utf-8" name = &quot;decription&quot; content = &quot;Hello&quot;>
+     <title>Sign_in Page</title>
+     <meta charset="utf-8">
      <link rel="icon" href="images/favicon.ico">
      <link rel="shortcut icon" href="images/favicon.ico" />
      <link rel="stylesheet" href="css/style.css">
@@ -17,7 +18,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      <script src="js/jquery.equalheights.js"></script>
      <script src="js/jquery.ui.totop.js"></script>
      <script src="js/jquery.easing.1.3.js"></script>
-     <script src="http://platform.tumblr.com/v1/share.js"></script>
      <script>
         $(document).ready(function(){
           $( ".block1" ).mouseover(function() {
@@ -29,19 +29,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           $().UItoTop({ easingType: 'easeOutQuart' });
         }); 
      </script>
-
-      <%
-        session.setMaxInactiveInterval(120);    
-      %>
+     <% if(session.getAttribute("currentshopadmin") == null) {%>
+      <script>
+            alert("Session expired, please re-Login!");
+            window.location = "Adminlogin.jsp";    
+      </script>
+     <%} %>
      </head>
      <body class="page1">
 
 <!--==============================header=================================-->
-  <header> 
+ <header> 
   <div class="container_12">
    <div class="grid_12"> 
     <div class="socials">
-      
+   
       <%-- Twitter share --%>
       <a href="https://twitter.com/share" class = "last1">
       <script>!function(d,s,id)
@@ -61,7 +63,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	  <%--Tumblr --%>
       <a href="http://www.tumblr.com/share" class="last4"></a> 
-
     </div>
     <h1><a href="index.jsp"><img src="images/logo.png" alt="Boo House"></a> </h1>
     <div class="menu_block">
@@ -70,14 +71,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <nav id="bt-menu" class="bt-menu">
         <a href="#" class="bt-menu-trigger"><span>Menu</span></a>
         <ul>
-          <li class="current bt-icon"><a href="index.jsp">Home</a></li>
-          <li class="bt-icon "><a href="About.jsp">About</a></li>
+          <li class="bt-icon"><a href="index.jsp">Home</a></li>
+          <li class="bt-icon "><a href="Sign_in.jsp">About</a></li>
          <li class="bt-icon"><a href="Menu.jsp">Menu</a></li>
         
-             <% if(session.getAttribute("currentuser")==null) {%>
-                  <li class="bt-icon"><a href="Sign_in.jsp">Sign In</a></li>
+             <% if(session.getAttribute("currentshopadmin")==null) {%>
+                  <li class="bt-icon"><a href="Adminlogin.jsp">Sign In</a></li>
              <%}else{%>
-                  <li class="bt-icon"><a href="Profile.jsp">My Profile</a></li>
+                  <li class="current bt-icon"><a href="Adminlogin.jsp">Sign Out</a></li>
              <%} %>
    
          <li class="bt-icon"><a href="Reservation.jsp">Reservation</a></li>
@@ -94,66 +95,101 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </header>
 
 <!--==============================Content=================================-->
-
 <div class="content"><div class="ic"></div>
-<a href="Menu.jsp" class="block1">
-  <img src="images/blur_img1.jpg" alt="">
-  <span class="price"><span>1st step: Select Soup Base.</span><span><small>$</small> 15.99 </span><span><small>Spicy Hot Pot</small></span><strong></strong></span>
-</a>
-<a href="Menu.jsp" class="block1">
-  <img src="images/blur_img2.jpg" alt="">
-  <span class="price"><span>2nd step: Select Meat.</span><span><small>$</small> 23.90</span><span><small>Select beef</small></span><strong></strong></span>
-</a>
-<a href="Menu.jsp" class="block1">
-  <img src="images/blur_img3.jpg" alt="">
-  <span class="price"><span>3rd step: Select Greens.</span>
-<span><small>$</small> 10.99</span><span><small>Spinach</small></span><strong></strong></span>
-</a>
 
   <div class="container_12">
-    <div class="grid_12">
-      <h3>New in Menu</h3>
-    </div>
-    <div class="grid_3">
-      <div class="box maxheight">
-        <img src="images/box_img1.jpg" alt="">
-        <div class="title">Mini Sausages</div>
-        These Sausages are made with a combination of grape jelly and chili sauce, which is absolutely delicious.
-        <br>
-        <a href="Menu.jsp">More Info</a>
-      </div>
-    </div>
-    <div class="grid_3">
-      <div class="box maxheight">
-        <img src="images/box_img2.jpg" alt="">
-        <div class="title">Cold Noodels</div>
-        Sichuan cold noodles are so famous for its pungency resulting from liberal use of garlic and chili peppers.
-      
-        <br>
-        <a href="Menu.jsp">More Info</a>
-      </div>
-    </div>
-    <div class="grid_3">
-      <div class="box maxheight">
-        <img src="images/box_img3.jpg" alt="">
-        <div class="title">Green Mussel</div>
-        Try these freshest Green Mussel! It's so delicious that you'll never forget. Eat healthy, life healthy!
-        <br>
-        <a href="Menu.jsp">More Info</a>
-      </div>
-    </div>
-    <div class="grid_3">
-      <div class="box maxheight">
-        <img src="images/box_img4.jpg" alt="">
-        <div class="title">Scallops</div>
+<%@include file = "Adminleftbar.jsp" %>
+
+<div class = "grid_14">   
+  	
+     	<h2></h2>
+     	
+     	 <div class="admin_profile_form">
+            <div class="form_subtitle">View Details Of This User</div>
         
-        Do you know? Scallops contain a variety of nutrients that can promote your cardiovascular health.
-        <br>
-        <a href="Menu.jsp">More Info</a>
-      </div>
-    </div>
-  </div>
+		<table> 
+		
+		<tr>
+		 	<td>
+			<b>UserID</b>
+			</td>
+			<td>
+			<s:property value = "returnuser.getUserId()" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<b>UserName</b>
+			</td>
+			<td>
+			<s:property value="returnuser.getUserName()"/>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<b>Cell Phone</b>
+			</td>
+			<td>
+			<s:property value="returnuser.getPhone()"/>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<b>E-mail</b>
+			</td>
+			<td>
+			<s:property value="returnuser.getEmail()"/>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<b>Credit</b>
+			</td>
+			<td>
+			<s:property value="returnuser.getCredit()"/>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<b>Level</b>
+			</td>
+			<td>
+			<s:property value="returnuser.getLevel()"/>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>
+			<b>Address</b>
+			</td>
+			<td>
+			<s:property value="returnuser.getUserAddress()"/>
+			</td>
+		</tr>
+
+		</table>
+		
+		<!-- <div>
+		<label class="contact">
+		 <input name="returnback" type="text" class="contact_input" />
+			<a href = "Adminviewreservation.jsp"> return back</a>
+		</label>
+		</div> -->
+		
+		<div class="form_row">
+       <a href = "Adminviewreservation.jsp"><input name="returnback" type="submit" value = "RETURN BACK" class = "register2"/></a> 
+        </div> 
+		
+		     	
+      </div>	
+     	
+     </div>  
 </div>
+</div>
+
+
+
+
 
 <!--==============================footer=================================-->
 
@@ -161,14 +197,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <div class="container_12">
     <div class="grid_6 prefix_3">
       <a href="index.html" class="f_logo"><img src="images/f_logo.png" alt=""></a>
-      
       <div class="copy">
-      &copy; Copyright &copy; 2014.Author:Jiaqi GAO Company name All rights reserved.
-      </div>
-      
-      <!-- <div class="copy">
       &copy; Copyright &copy; 2014.Author: Jiaqi GAO Company name All rights reserved.
-      </div> -->
+      </div>
     </div>
   </div>
 </footer>

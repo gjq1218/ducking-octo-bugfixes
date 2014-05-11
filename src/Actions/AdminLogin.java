@@ -67,6 +67,7 @@ public class AdminLogin extends ActionSupport{
 		}
 		
 		ShopAdmin finding = shopAdminDAO.findById(adminid1);
+		
 		if(finding!=null)
 		{
 			
@@ -87,7 +88,7 @@ public class AdminLogin extends ActionSupport{
 	           }
 			   
 			   String checkpassword = show.toString();
-			   System.out.println(checkpassword);
+			   //System.out.println(checkpassword);
 			   
 			if(!finding.getShopadminPwd().equals(checkpassword))
 			{
@@ -95,7 +96,8 @@ public class AdminLogin extends ActionSupport{
 			}
 			else
 			{
-				ActionContext.getContext().getSession().put("currentuser",finding);
+				ActionContext.getContext().getSession().put("currentshopadmin",finding);
+				
 				return "success";
 			}			
 		}
@@ -105,7 +107,9 @@ public class AdminLogin extends ActionSupport{
 
 
 public String execute() throws Exception{
-	Resource tmp = new FileSystemResource("/Users/haoyuanji/Workspaces2/MyEclipse 10/ShopSystem/src/applicationContext.xml");
+	
+	
+	Resource tmp = new FileSystemResource("/Users/Gina/Programming/workspace_MyEclipse/ShopSystem/src/applicationContext.xml");
 	BeanFactory factory = new XmlBeanFactory(tmp);
 	ShopAdminDAO shopAdminDAO = (ShopAdminDAO) factory.getBean("ShopAdminDAO");
 	String result = checkadminlogin(shopAdminDAO);

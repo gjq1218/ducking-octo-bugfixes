@@ -107,8 +107,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      	 <div class="profile_form">
             <div class="form_subtitle">View your Reservation History</div>
         
- 	
- 	    
 		<table> 
 		<tr>
 		<td align = "center">
@@ -125,10 +123,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          </td>
         
 		</tr>
-		 <s:iterator id="u" value="currentUserReservation">
-		<!----- Username ---------------------------------------------------------->
-		
-	  
+		   <s:iterator id="u" value="currentUserReservation">
 		<tr>
 		<td align = "center">
 		   <s:property value="#u.getReservationId()"/>

@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
-  <package name="Login" extends="struts-default" namespace="/">   
-  <action name="UserLogin" class="Actions.UserLogin" >   
-  <result name="success">Profile.jsp</result>   
-  <result name="fail">Sign_in.jsp</result>
-  <result name="input">Sign_in.jsp</result>
+  <package name ="Login" extends="struts-default" namespace="/">   
+  <action name ="UserLogin" class="Actions.UserLogin" >   
+  <result name ="success">Profile.jsp</result>   
+  <result name ="fail">Sign_in.jsp</result>
+  <result name ="input">Sign_in.jsp</result>
   </action>  
-  <action name="UserRegistration" class="Actions.UserRegistration">   
-  <result name="success">Profile.jsp</result>   
-  <result name="fail">Sign_in.jsp</result>
-  <result name="input">Sign_in.jsp</result>
+  <action name ="UserRegistration" class="Actions.UserRegistration">   
+  <result name ="success">Profile.jsp</result>   
+  <result name ="fail">Sign_in.jsp</result>
+  <result name ="input">Sign_in.jsp</result>
   </action>
   <action name = "AdminLogin" class = "Actions.AdminLogin">
-  <result name = "success">Template.jsp</result>
+  <result name = "success">Adminviewreservation.jsp</result>
   <result name = "input"> Adminlogin.jsp</result>
   <result name = "fail">Adminlogin.jsp</result>
   </action>
-  <action name="Editprofile" class="Actions.Editprofile">   
-  <result name="success">Profile.jsp</result>   
-  <result name="fail">Editprofile.jsp</result>
-  <result name="input">Editprofile.jsp</result>
+  <action name ="Editprofile" class="Actions.Editprofile">   
+  <result name ="success">Profile.jsp</result>   
+  <result name ="fail">Editprofile.jsp</result>
+  <result name ="input">Editprofile.jsp</result>
   </action>
   <action name = "MakeReservation" class = "Actions.MakeReservation">
   <result name = "success"> Viewreservation.jsp</result>
   <result name = "fail"> Makereservation.jsp</result>  
   </action> 
   <action name = "Buyneworder" class="Actions.Buyneworder">
-  <result name="success">Menu.jsp</result>   
-  <result name="fail">Menu.jsp</result>
-  <result name="input">Sign_in.jsp</result>
+  <result name ="success">Menu.jsp</result>   
+  <result name ="fail">Menu.jsp</result>
+  <result name ="input">Sign_in.jsp</result>
   </action>
   <action name = "LoadUserReservation" class="Actions.LoadUserReservation">
-  <result name="success">Reservationresult.jsp</result>   
-  <result name="input">Sign_in.jsp</result>
+  <result name ="success">Reservationresult.jsp</result>   
+  <result name ="input">Sign_in.jsp</result>
   </action>
   <action name = "Changepassword" class = "Actions.Changepassword">
   <result name = "success">Changepassword.jsp</result>
@@ -88,5 +88,8 @@
   <action name = "AdminViewUser" class = "Actions.AdminViewUser" >
   <result name = "success"> Adminviewuserdetail.jsp</result>
   </action>
+  
+  
+  
   </package> 
 </struts>   

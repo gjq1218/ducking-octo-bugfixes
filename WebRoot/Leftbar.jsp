@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
-
+<%@ taglib prefix="s" uri="/struts-tags" %> 
    <div class ="grid_13">
    	<div class = "welcome">
       <h2>Welcome, <s:property value="#session.currentuser.getUserName()"/></h2>

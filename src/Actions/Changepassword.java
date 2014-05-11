@@ -83,7 +83,7 @@ public class Changepassword extends ActionSupport{
 		
 		String md5_compare_pwd = MD5helper(current_pwd);
 		String md5_new_pwd = MD5helper(new_pwd);
-		System.out.println("new pwd after MD5: " +md5_new_pwd);
+		//System.out.println("new pwd after MD5: " +md5_new_pwd);
 
 		if(null == new_pwd || "".equals(current_pwd) 
 				|| null == new_pwd || "".equals(new_pwd) 
@@ -103,7 +103,7 @@ public class Changepassword extends ActionSupport{
 		{
 			
 			
-			Resource res = new FileSystemResource("/Users/haoyuanji/Workspaces2/MyEclipse 10/ShopSystem/src/applicationContext.xml");
+			Resource res = new FileSystemResource("/Users/Gina/Programming/workspace_MyEclipse/ShopSystem/src/applicationContext.xml");
 			BeanFactory factory = new XmlBeanFactory(res);
 			UserDAO userDAO = (UserDAO) factory.getBean("UserDAO");
 			

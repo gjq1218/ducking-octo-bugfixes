@@ -29,10 +29,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           $().UItoTop({ easingType: 'easeOutQuart' });
         }); 
      </script>
-     <% if(session.getAttribute("currentuser") == null) {%>
+     <% if(session.getAttribute("currentshopadmin") == null) {%>
       <script>
             alert("Session expired, please re-Login!");
-            window.location = "Sign_in.jsp";    
+            window.location = "Adminlogin.jsp";    
       </script>
      <%} %>
      </head>
@@ -75,10 +75,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <li class="bt-icon "><a href="Sign_in.jsp">About</a></li>
          <li class="bt-icon"><a href="Menu.jsp">Menu</a></li>
         
-             <% if(session.getAttribute("currentuser")==null) {%>
-                  <li class="bt-icon"><a href="Sign_in.jsp">Sign In</a></li>
+             <% if(session.getAttribute("currentshopadmin")==null) {%>
+                  <li class="bt-icon"><a href="Adminlogin.jsp">Sign In</a></li>
              <%}else{%>
-                  <li class="current bt-icon"><a href="Profile.jsp">My Profile</a></li>
+                  <li class="current bt-icon"><a href="Adminlogin.jsp">Sign Out</a></li>
              <%} %>
    
          <li class="bt-icon"><a href="Reservation.jsp">Reservation</a></li>
@@ -86,22 +86,87 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        
         </ul>
       </nav>
-    <%
-        String orderid = request.getParameter("orderid");
-        out.println(orderid);
     
-     %>  
  <div class="clear"></div>
 </div>
 <div class="clear"></div>
           </div>
       </div>
-<!--        <script language="javascript">
-        window.location.href = "ContinueShopping.action";
-      </script>  -->
 </header>
 
 <!--==============================Content=================================-->
+<div class="content"><div class="ic"></div>
+
+  <div class="container_12">
+<%@include file = "Adminleftbar.jsp" %>
+
+<div class = "grid_14">   
+  	
+     	<h2></h2>
+     	
+     	 <div class="admin_profile_form">
+            <div class="form_subtitle">View All Reservation History Of <s:property value="allUserReservation.get(0).getId().getReservation().getShop().getShopName()"/> Shop</div>
+        
+		<table> 
+		<tr>
+		<td>
+		   <b>Reservation ID</b>
+		</td>
+		<td>
+           <b>Shop</b>
+        </td>
+        <td >
+           <b>Reservation Time</b>
+        </td>
+        <td>
+           <b>Companions</b>
+         </td>
+         <td>
+           <b> User ID</b>
+           
+  
+           
+         </td>
+        
+		</tr>
+		 <s:iterator id="p" value="allUserReservation">
+		
+		<tr>
+		<td align = "center">
+		   <s:property value="#p.getId().getReservation().getReservationId()"/>
+		</td>
+		<td align = "center">
+           <s:property value="#p.getId().getReservation().getShop().getShopName()"/>	
+        </td>
+        <td align = "center">
+           <s:property value="#p.getId().getReservation().getTime().toString()"/>
+        </td>
+        <td  align = "center">
+           <s:property value="#p.getId().getReservation().getPeoplenumber()"/>
+         </td>
+         
+         <td  align = "center">
+         
+           <s:a href = "AdminViewUser.action?adminviewuserid=%{#p.getId().getUser().getUserId()}">
+           <s:property value="#p.getId().getUser().getUserId()"/>
+           </s:a>
+         </td>
+        
+		</tr>
+        
+		</s:iterator>
+		</table>
+		
+		     	
+      </div>	
+     	
+     </div>  
+</div>
+</div>
+
+
+
+
 
 <!--==============================footer=================================-->
 
