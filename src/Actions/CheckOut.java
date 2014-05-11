@@ -53,7 +53,7 @@ public String execute() throws Exception {
 		return INPUT;   
 	
 	//System.out.println(neweditaddress);
-	  Resource res =new FileSystemResource("/Users/haoyuanji/Workspaces2/MyEclipse 10/ShopSystem/src/applicationContext.xml");
+	  Resource res =new FileSystemResource("/Users/Gina/Programming/workspace_MyEclipse/ShopSystem/src/applicationContext.xml");
       BeanFactory factory = new XmlBeanFactory(res); 
       OrderDAO orderDAO = (OrderDAO) factory.getBean("OrderDAO");
      
