@@ -29,10 +29,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           $().UItoTop({ easingType: 'easeOutQuart' });
         }); 
      </script>
-     <% if(session.getAttribute("currentuser") == null) {%>
+     <% if(session.getAttribute("currentshopadmin") == null) {%>
       <script>
             alert("Session expired, please re-Login!");
-            window.location = "Sign_in.jsp";    
+            window.location = "Adminlogin.jsp";    
       </script>
      <%} %>
      </head>
@@ -75,10 +75,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <li class="bt-icon "><a href="Sign_in.jsp">About</a></li>
          <li class="bt-icon"><a href="Menu.jsp">Menu</a></li>
         
-             <% if(session.getAttribute("currentuser")==null) {%>
-                  <li class="bt-icon"><a href="Sign_in.jsp">Sign In</a></li>
+             <% if(session.getAttribute("currentshopadmin")==null) {%>
+                  <li class="bt-icon"><a href="Adminlogin.jsp">Sign In</a></li>
              <%}else{%>
-                  <li class="current bt-icon"><a href="Profile.jsp">My Profile</a></li>
+                  <li class="current bt-icon"><a href="Adminlogin.jsp">Sign Out</a></li>
              <%} %>
    
          <li class="bt-icon"><a href="Reservation.jsp">Reservation</a></li>
@@ -98,76 +98,73 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="content"><div class="ic"></div>
 
   <div class="container_12">
-<%@include file = "Leftbar.jsp" %>
+<%@include file = "Adminleftbar.jsp" %>
 
 <div class = "grid_14">   
   	
-     	<h2>Your Unchecked orders</h2>
+     	<h2></h2>
      	
-     	 <div class="cart_profile_form">
-     	  <h4><span><img src = "./images/pint7.png" alt = "current order"></span> A sign means your current order.</h4>
-            <div class="form_subtitle">View your Cart</div>
+     	 <div class="admin_profile_form">
+            <div class="form_subtitle">View All Order Of <s:property value="allUserOrder.get(0).getId().getReservation().getShop().getShopName()"/> Shop</div>
+        
 		<table> 
 		<tr>
-		<td align = "center">
-		   <b>Order ID</b>		 
+		<td>
+		   <b>Order ID</b>
 		</td>
-		<td align = "center">
-           <b>Shop Name</b>
+		<td>
+           <b>Shop</b>
         </td>
-        <td align = "center">
+        <td >
            <b>Order Time</b>
         </td>
-        <td  align = "center">
+        <td>
            <b>Delivery Address</b>
          </td>
-         <td  align = "center">
+         <td>
            <b>Overall Price</b>
          </td>
-         <td  align = "center">
-           <b>Continue Shopping</b>
-         </td>
-         <td align = "center">
-            <b>Check Out</b>
+         <td>
+           <b> User ID</b>         
          </td>
          <td>
          </td>
+        
 		</tr>
-		 <s:iterator id="u" value="currentcart" status = "rowstatus">
+		 <s:iterator id="p" value="allUserOrder">
+		
 		<tr>
-		<td align = "center" >
-		<s:a href = "CartSeeOrder.action?orderid=%{#u.getOrderId()}">
-		   <s:property value="#u.getOrderId()"/>
- 		</s:a>
+		<td align = "center">
+		   <s:property value="#p.getId().getOrder().getOrderId()"/>
 		</td>
 		<td align = "center">
-           <s:property value="#u.getShop().getShopName()"/> 
+           <s:property value="#p.getId().getOrder().getShop().getShopName()"/>	
         </td>
         <td align = "center">
-           <s:property value="#u.getTime().toString()"/>
+           <s:property value="#p.getId().getOrder().getTime().toString()"/>
         </td>
         <td  align = "center">
-           <s:property value="#u.getDeliveryAddress()"/>
-         </td>
-        <td  align = "center">
-           <s:property value="#u.getOverallPrice()"/>
+           <s:property value="#p.getId().getOrder().getDeliveryAddress()"/>
          </td>
          <td  align = "center">
-          <s:a href = "ContinueShopping.action?orderid=%{#u.getOrderId()}">
-           Continue...
-          </s:a>
+           <s:property value="#p.getId().getOrder().getOverallPrice().toString()"/>
          </td>
-         <td align = "center">
-           <s:a href = "CartSeeOrder.action?orderid=%{#u.getOrderId()}">
-           Check Out
+         
+         <td  align = "center">
+         
+           <s:a href = "AdminOrderViewUser.action?adminviewuserid=%{#p.getId().getUser().getUserId()}">
+           <s:property value="#p.getId().getUser().getUserId()"/>
            </s:a>
          </td>
-         <s:if test = "#u.getOrderId() == #session.currentorder.getOrderId()">
-           <td align = "center">
-              <img src = "./images/pint6.png" alt = "current order" align= "middle">
-           </td>
-         </s:if>
-		</tr>       
+         
+         <td style = "color:red" align = "center">
+          <s:a href = "Closeorder.action?orderid=%{#p.getId().getOrder().getOrderId()}">
+           Close
+         </s:a>  
+         </td>
+        
+		</tr>
+        
 		</s:iterator>
 		</table>
 		
@@ -177,6 +174,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      </div>  
 </div>
 </div>
+
+
+
+
+
 <!--==============================footer=================================-->
 
 <footer>    

@@ -29,10 +29,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           $().UItoTop({ easingType: 'easeOutQuart' });
         }); 
      </script>
-     <% if(session.getAttribute("currentuser") == null) {%>
+     <% if(session.getAttribute("currentshopadmin") == null) {%>
       <script>
             alert("Session expired, please re-Login!");
-            window.location = "Sign_in.jsp";    
+            window.location = "Adminlogin.jsp";    
       </script>
      <%} %>
      </head>
@@ -92,9 +92,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="clear"></div>
           </div>
       </div>
-   <script language="javascript">
-      window.location.href = "ViewOrder.action";
-   </script> 
+       <script language="javascript">
+        window.location.href = "AdminViewOrder.action";
+      </script> 
 </header>
 
 <!--==============================Content=================================-->

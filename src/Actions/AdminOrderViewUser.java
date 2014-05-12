@@ -11,7 +11,7 @@ import Data.UserDAO;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class AdminViewUser extends ActionSupport{
+public class AdminOrderViewUser extends ActionSupport{
 
 
 	public User getReturnuser() {

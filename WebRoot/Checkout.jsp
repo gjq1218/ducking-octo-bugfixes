@@ -143,7 +143,20 @@ table.inner{border: 0px} */
 		 
 		<tr>
 		<td>Shop Name</td>
-		<td>Baltimore (Could be changed)</td>
+		<td>
+		<s:fielderror cssStyle = "color:red">
+		  <s:param>restaurant_name</s:param>
+		</s:fielderror>
+		<select name="restaurant_name" id="restaurant_name">
+		<option value="-1">Locations:</option>
+		<option value="Baltimore">Baltimore</option>
+		<option value="Beijing">Beijing</option>
+		<option value="New York">New York</option>
+		<option value="San Francisco">San Francisco</option>	
+		</select>
+				
+
+		</td>
 		</tr>
  
         
@@ -156,7 +169,11 @@ table.inner{border: 0px} */
 		<!----- Address ---------------------------------------------------------->
 		<tr>
 		<td>Delivery Address <br /><br /><br /></td>
-		<td><textarea name="neweditaddress" rows="4" cols="30">${session.currentorder.deliveryAddress}</textarea></td>
+		<td>
+	    <s:fielderror cssStyle = "color:red">
+		  <s:param>neweditaddress</s:param>
+		</s:fielderror>
+		<textarea name="neweditaddress" rows="4" cols="30">${session.currentuser.userAddress}</textarea></td>
 		</tr>
  
 		

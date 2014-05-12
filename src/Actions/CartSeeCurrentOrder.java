@@ -53,7 +53,7 @@ public String execute() throws Exception {
 	//the session is expired, you should login again.
 	if (!ActionContext.getContext().getSession().containsKey("currentuser"))
 		return INPUT;   
-	  Resource res =new FileSystemResource("/Users/Gina/Programming/workspace_MyEclipse/ShopSystem/src/applicationContext.xml");
+	  Resource res =new FileSystemResource("/Users/haoyuanji/Workspaces2/MyEclipse 10/ShopSystem/src/applicationContext.xml");
       BeanFactory factory = new XmlBeanFactory(res); 
       OrderDAO orderDAO = (OrderDAO) factory.getBean("OrderDAO");
       OrderMenuDAO ordermenuDAO = (OrderMenuDAO) factory.getBean("OrderMenuDAO");

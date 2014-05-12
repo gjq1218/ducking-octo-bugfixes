@@ -41,7 +41,7 @@ public String buysomething(String something) throws ParseException{
 	 if(!ActionContext.getContext().getSession().containsKey("currentuser"))
 		 return INPUT;
 	 
-	 Resource res =new FileSystemResource("/Users/Gina/Programming/workspace_MyEclipse/ShopSystem/src/applicationContext.xml");
+	 Resource res =new FileSystemResource("/Users/haoyuanji/Workspaces2/MyEclipse 10/ShopSystem/src/applicationContext.xml");
 	 BeanFactory factory = new XmlBeanFactory(res);
 	 OrderDAO orderDAO = (OrderDAO) factory.getBean("OrderDAO");
 	 MenuDAO menuDAO = (MenuDAO) factory.getBean("MenuDAO");
@@ -89,7 +89,7 @@ public String buysomething(String something) throws ParseException{
 	   currentorder.setType("current");
 	   currentorder.setOverallPrice(0.0);
 	   currentorder.setDeliveryAddress("not known");
-	   List<Shop> defaultshopllist = shopDAO.findByShopName("Baltimore");
+	   List<Shop> defaultshopllist = shopDAO.findByShopName("undetermined");
 	   currentorder.setShop(defaultshopllist.get(0));
 	   
 	   //set default time

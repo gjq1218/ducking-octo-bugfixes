@@ -2,7 +2,6 @@ package Actions;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.BeanFactory;
@@ -15,6 +14,8 @@ import org.springframework.core.io.Resource;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
+import Data.Order;
+import Data.OrderDAO;
 import Data.Reservation;
 import Data.ReservationDAO;
 import Data.Shop;
@@ -22,18 +23,21 @@ import Data.ShopAdmin;
 import Data.ShopDAO;
 import Data.User;
 import Data.UserDAO;
+import Data.UserOrder;
+import Data.UserOrderDAO;
+import Data.UserOrderId;
 import Data.UserReservation;
 import Data.UserReservationDAO;
 import Data.UserReservationId;
 
-public class AdminLoadUserReservation extends ActionSupport {
-	public List<UserReservation> getAllUserReservation() {
-		return allUserReservation;
+public class Adminvieworder extends ActionSupport {
+	public List<UserOrder> getAllUserOrder() {
+		return allUserOrder;
 	}
 
 
-	public void setAllUserReservation(List<UserReservation> allUserReservation) {
-		this.allUserReservation = allUserReservation;
+	public void setAllUserOrder(List<UserOrder> allUserOrder) {
+		this.allUserOrder = allUserOrder;
 	}
 
 
@@ -55,25 +59,25 @@ public class AdminLoadUserReservation extends ActionSupport {
 
 
 
-	List<UserReservation> allUserReservation = new ArrayList<UserReservation>();
+	List<UserOrder> allUserOrder = new ArrayList<UserOrder>();
 	ShopAdmin currentadmin = (ShopAdmin)ActionContext.getContext().getSession().get("currentshopadmin");
 	
-	public List<UserReservation> sortbytime(List<UserReservation> originlist)
+	public List<UserOrder> sortbytime(List<UserOrder> originlist)
 	{
 		if (originlist == null) return null;
-		List<UserReservation> finallist = new ArrayList<UserReservation>();
+		List<UserOrder> finallist = new ArrayList<UserOrder>();
 		
 		int size = originlist.size();
 		
 		for (int i = 0; i<size; i++)
 		{
 			
-			UserReservation tempkey = originlist.get(0);
-			Timestamp compare =  tempkey.getId().getReservation().getTime();
+			UserOrder tempkey = originlist.get(0);
+			Timestamp compare =  tempkey.getId().getOrder().getTime();
 			
-			for(UserReservation item:originlist)
+			for(UserOrder item:originlist)
 			{
-				Timestamp itemtime = item.getId().getReservation().getTime();
+				Timestamp itemtime = item.getId().getOrder().getTime();
 
 				if(compare.after(itemtime)){
 					
@@ -96,46 +100,50 @@ public class AdminLoadUserReservation extends ActionSupport {
 		if (!ActionContext.getContext().getSession().containsKey("currentshopadmin"))
 			return INPUT;
 		
-		Resource tmp = new FileSystemResource("/Users/Gina/Programming/workspace_MyEclipse/ShopSystem/src/applicationContext.xml");
+		Resource tmp = new FileSystemResource("/Users/haoyuanji/Workspaces2/MyEclipse 10/ShopSystem/src/applicationContext.xml");
 		BeanFactory factory = new XmlBeanFactory(tmp);
-		ReservationDAO reservationDAO = (ReservationDAO) factory.getBean("ReservationDAO");
-		UserReservationDAO userreservationDAO = (UserReservationDAO) factory.getBean("UserReservationDAO");
+		OrderDAO orderDAO = (OrderDAO) factory.getBean("OrderDAO");
+		UserOrderDAO userorderDAO = (UserOrderDAO) factory.getBean("UserOrderDAO");
 		ShopDAO shopDAO = (ShopDAO) factory.getBean("ShopDAO");
 		UserDAO userDAO = (UserDAO) factory.getBean("UserDAO");
 		
 		
 		
-		List<UserReservation> originalUserReservation = userreservationDAO.findAll();
-	
+		List<UserOrder> originalUserOrder = userorderDAO.findAll();
+//		
+//		for (UserReservation item:originalUserReservation)
+//		{
+//			System.out.println(item.getId().getReservation().getReservationId());
+//		}
+//		
 		
-		for(UserReservation notitem: originalUserReservation)
+		for(UserOrder notitem: originalUserOrder)
 		{
-			Reservation notreservation = notitem.getId().getReservation();
-			Reservation realreservation = reservationDAO.findById(notreservation.getReservationId());
+			Order notorder = notitem.getId().getOrder();
+			Order realorder = orderDAO.findById(notorder.getOrderId());
 			
 			
 			//test
 			
 			
 			//add shop information from shopDAO to obtain the realreservation		
-			Shop realshop = shopDAO.findById(realreservation.getShop().getShopId());
+			Shop realshop = shopDAO.findById(realorder.getShop().getShopId());
 			
-			realreservation.setShop(realshop);
+			realorder.setShop(realshop);
 			
 			//add user information from UserDAO.
 			User notuser = notitem.getId().getUser();
 			User realuser = userDAO.findById(notuser.getUserId());
 			
-			UserReservationId  userReservationId = new UserReservationId();
-			userReservationId.setReservation(realreservation);
-			userReservationId.setUser(realuser);
+			UserOrderId  userOrderId = new UserOrderId();
+			userOrderId.setOrder(realorder);
+			userOrderId.setUser(realuser);
 			
-			notitem.setId(userReservationId);
-			Date now = new Date();
-			if(notitem.getId().getReservation().getShop().getShopId().equals(currentadmin.getShop().getShopId())){
-				if(notitem.getId().getReservation().getTime().after(now))
-				//System.out.println(notitem.getId().getReservation().getReservationId());
-				allUserReservation.add(notitem);		
+			notitem.setId(userOrderId);
+			
+			if(notitem.getId().getOrder().getShop().getShopId().equals(currentadmin.getShop().getShopId())){
+				if(notitem.getId().getOrder().getType().equals("active"))
+				  allUserOrder.add(notitem);		
 			}
 		}
 		
@@ -145,7 +153,7 @@ public class AdminLoadUserReservation extends ActionSupport {
 //			System.out.println(item.getId().getReservation().getReservationId());
 //		}
 //		
-		//allUserReservation = sortbytime(allUserReservation);
+		allUserOrder = sortbytime(allUserOrder);
 		
 		
 		

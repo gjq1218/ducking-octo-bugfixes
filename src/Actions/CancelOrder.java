@@ -56,7 +56,7 @@ public String execute() throws Exception {
 	//the session is expired, you should login again.
 	if (!ActionContext.getContext().getSession().containsKey("currentuser"))
 		return INPUT;   
-	  Resource res =new FileSystemResource("/Users/Gina/Programming/workspace_MyEclipse/ShopSystem/src/applicationContext.xml");
+	  Resource res =new FileSystemResource("/Users/haoyuanji/Workspaces2/MyEclipse 10/ShopSystem/src/applicationContext.xml");
       BeanFactory factory = new XmlBeanFactory(res); 
       OrderDAO orderDAO = (OrderDAO) factory.getBean("OrderDAO");
       OrderMenuDAO ordermenuDAO = (OrderMenuDAO) factory.getBean("OrderMenuDAO");
@@ -103,21 +103,7 @@ public String execute() throws Exception {
       
       ActionContext.getContext().getSession().remove("currentorder");
       ActionContext.getContext().getSession().remove("menunumber");
-//      
-//
-//      thisordermenu = ordermenuDAO.findByOrder(newcurrentorder);
-//      List<Menu> finallist = new ArrayList<Menu>();
-//      
-//      for (Menu notitem:thisordermenu)
-//      {
-//    	  Menu realitem = menuDAO.findById(notitem.getMenuId());
-//    	  finallist.add(realitem);
-//    	  
-//      }
-//      
-//      thisordermenu = finallist;
-//      ActionContext.getContext().getSession().put("menunumber", thisordermenu.size());
-//      
+  
 	   return "success";
 
    }  

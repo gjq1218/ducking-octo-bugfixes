@@ -58,7 +58,7 @@ public String execute() throws Exception {
 		return INPUT;  
 	
 	//System.out.println(orderid);
-	  Resource res =new FileSystemResource("/Users/Gina/Programming/workspace_MyEclipse/ShopSystem/src/applicationContext.xml");
+	  Resource res =new FileSystemResource("/Users/haoyuanji/Workspaces2/MyEclipse 10/ShopSystem/src/applicationContext.xml");
       BeanFactory factory = new XmlBeanFactory(res); 
       OrderDAO orderDAO = (OrderDAO) factory.getBean("OrderDAO");
       OrderMenuDAO ordermenuDAO = (OrderMenuDAO) factory.getBean("OrderMenuDAO");
@@ -80,44 +80,47 @@ public String execute() throws Exception {
     	  return "fail";
       }
       
-      // Delete OrderMenu 
-      List<OrderMenu> allordermenu = ordermenuDAO.findAll();
+      newcurrentorder.setType("submit cancellation");
+      orderDAO.update(newcurrentorder);
       
-      List<OrderMenu> currentordermenu = new ArrayList<OrderMenu>();
-      
-      for (OrderMenu checkitem:allordermenu)
-      {
-    	  if(checkitem.getId().getOrder().getOrderId().equals(orderid))
-    	  {
-    		  currentordermenu.add(checkitem);
-    	  }
-      }
-      for(OrderMenu item:currentordermenu)
-      {
-    	  ordermenuDAO.delete(item);
-      }
-      // Delete UserOrder
-      List<UserOrder> alluserorder = userorderDAO.findAll();
-      
-      List<UserOrder> currentuserorder = new ArrayList<UserOrder>();
-      
-      for (UserOrder checkitem:alluserorder)
-      {
-    	  if(checkitem.getId().getOrder().getOrderId().equals(orderid))
-    	  {
-    		  currentuserorder.add(checkitem);
-    	  }
-      }
-      for(UserOrder item:currentuserorder)
-      {
-    	  userorderDAO.delete(item);
-      }
-      // Delete Order
-      orderDAO.delete(newcurrentorder);
-      
-      
-      ActionContext.getContext().getSession().remove("currentorder");
-      ActionContext.getContext().getSession().remove("menunumber");
+//      // Delete OrderMenu 
+//      List<OrderMenu> allordermenu = ordermenuDAO.findAll();
+//      
+//      List<OrderMenu> currentordermenu = new ArrayList<OrderMenu>();
+//      
+//      for (OrderMenu checkitem:allordermenu)
+//      {
+//    	  if(checkitem.getId().getOrder().getOrderId().equals(orderid))
+//    	  {
+//    		  currentordermenu.add(checkitem);
+//    	  }
+//      }
+//      for(OrderMenu item:currentordermenu)
+//      {
+//    	  ordermenuDAO.delete(item);
+//      }
+//      // Delete UserOrder
+//      List<UserOrder> alluserorder = userorderDAO.findAll();
+//      
+//      List<UserOrder> currentuserorder = new ArrayList<UserOrder>();
+//      
+//      for (UserOrder checkitem:alluserorder)
+//      {
+//    	  if(checkitem.getId().getOrder().getOrderId().equals(orderid))
+//    	  {
+//    		  currentuserorder.add(checkitem);
+//    	  }
+//      }
+//      for(UserOrder item:currentuserorder)
+//      {
+//    	  userorderDAO.delete(item);
+//      }
+//      // Delete Order
+//      orderDAO.delete(newcurrentorder);
+//      
+//      
+//      ActionContext.getContext().getSession().remove("currentorder");
+//      ActionContext.getContext().getSession().remove("menunumber");
      
 	   return "success";
 
