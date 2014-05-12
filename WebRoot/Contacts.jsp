@@ -26,23 +26,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           $().UItoTop({ easingType: 'easeOutQuart' });
         });
      </script>
-     <!--[if lt IE 8]>
-       <div style=' clear: both; text-align:center; position: relative;'>
-         <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-           <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
-         </a>
-
-    <![endif]-->
-    <!--[if lt IE 9]>
-      <script src="js/html5shiv.js"></script>
-      <link rel="stylesheet" media="screen" href="css/ie.css">
-    <![endif]-->
-    <!--[if lt IE 10]>
-      <script src="js/html5shiv.js"></script>
-      <link rel="stylesheet" media="screen" href="css/ie1.css">
-    <![endif]-->
-    
-     </head>
      <body  class="">
 
 <!--==============================header=================================-->
@@ -111,31 +94,102 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div id="map"></div>
       </div>
       <div class="clear"></div>
-      <div class="grid_4">
-        <h3 class="head3">Address</h3>
+      <div class="grid_15">
+        <h3 class="head3">Baltimore</h3>
               <div class="map">
 
 
                 <address>
                               <dl>
-                                  <dt>The Company Name Inc. <br>
-                                      8901 Marmora Road,<br>
-                                      Glasgow, D04 89GR.
+                                  <dt>The Mongolia's Hot Pot.<br>
+                                      500 W. University Pkwy,<br>
+                                      Baltimore, MD 21210.
                                   </dt>
-                                  <dd><span>Freephone:</span>+1 800 559 6580</dd>
-                                  <dd><span>Telephone:</span>+1 800 603 6035</dd>
+                                  <dd><span>Freephone:</span>+1 023 101-1111</dd>
+                                  <dd><span>Telephone:</span>+1 023 101-1111</dd>
                                   <dd><span>FAX:</span>+1 800 889 9898</dd>
-                                  <dd>E-mail: <a href="#" class="col2">mail@demolink.org</a></dd>
-                                  <dd>Skype: <a href="#" class="col2">@skypename</a></dd>
+                                  <dd>E-mail: <a href="#" class="col2">Welcome@MongoliaHotPot.org</a></dd>
+                                  <dd>Skype: <a href="#" class="col2">@MongoliaHotPot</a></dd>
 							</dl>
                            </address>
-                           <p>We’re glad to provide support services for all <a href="http://www.templatemonster.com/website-templates.php" rel="nofollow" class="col2">premium designs</a>
-                            that we produce. The goodies that are available for free (free templates) go without support. </p>
-                            If you’re looking for some professionals to help you polish the chosen free theme, address to  <a href="http://www.templatetuning.com/"  rel="nofollow" class="col2">Template Tuning </a>
-                           guys for help. Please note that it’s a paid service.
+                         
+
             </div>
       </div>
-      <div class="grid_8">
+      
+      
+      <div class="grid_15">
+        <h3 class="head3">Beijing</h3>
+              <div class="map">
+
+
+                <address>
+                              <dl>	
+                              	  <dt>The Mongolia's Hot Pot. <br>
+                                      Number 22 Dongsishitiao,<br>
+                                      Beijing, 100028
+                                  </dt>
+                                 
+                                  <dd><span>Freephone:</span>+1 023 101-1112</dd>
+                                  <dd><span>Telephone:</span>+1 023 101-1112</dd>
+                                  <dd><span>FAX:</span>+1 800 889 9898</dd>
+                                  <dd>E-mail: <a href="#" class="col2">Welcome@MongoliaHotPot.org</a></dd>
+                                  <dd>Skype: <a href="#" class="col2">@MongoliaHotPot</a></dd>
+							</dl>
+                           </address>
+                           
+            </div>
+      </div>
+      
+      
+      <div class="grid_15">
+        <h3 class="head3">New York</h3>
+              <div class="map">
+
+
+                <address>
+                              <dl>
+                                  <dt>The Mongolia's Hot Pot.<br>
+                                      56 Beaver St,<br>
+                                      New York, NY 10004
+                                  </dt>
+                                 <dd><span>Freephone:</span>+1 023 101-1113</dd>
+                                  <dd><span>Telephone:</span>+1 023 101-1113</dd>
+                                  <dd><span>FAX:</span>+1 800 889 9898</dd>
+                                  <dd>E-mail: <a href="#" class="col2">Welcome@MongoliaHotPot.org</a></dd>
+                                  <dd>Skype: <a href="#" class="col2">@MongoliaHotPot</a></dd>
+							</dl>
+                           </address>
+                        
+
+            </div>
+      </div>
+      
+      <div class="grid_15">
+        <h3 class="head3">San Jose</h3>
+              <div class="map">
+
+
+                <address>
+                              <dl>
+                                  <dt>The Mongolia's Hot Pot.<br>
+                                      2800 California St,<br>
+                                      San Francisco, CA 94115
+                                  </dt>
+                                <dd><span>Freephone:</span>+1 023 101-1114</dd>
+                                  <dd><span>Telephone:</span>+1 023 101-1114</dd>
+                                  <dd><span>FAX:</span>+1 800 889 9898</dd>
+                                  <dd>E-mail: <a href="#" class="col2">Welcome@MongoliaHotPot.org</a></dd>
+                                  <dd>Skype: <a href="#" class="col2">@MongoliaHotPot</a></dd>
+							</dl>
+                           </address>
+                        
+
+            </div>
+      </div>
+      
+      
+      <!-- <div class="grid_8">
         <h3 class="head3">Contact Form</h3>
               <form id="form">
                               
@@ -171,6 +225,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </div>
                         </form>   
       </div>
+  
+   -->
+  
+  
+  
   </div>
 </div>
 

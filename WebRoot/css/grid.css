@@ -42,7 +42,8 @@ body {
 .grid_11,
 .grid_12,
 .grid_13,
-.grid_14 {
+.grid_14,
+.grid_15 {
   display: inline;
   float: left;
   margin-left: 10px;
@@ -134,6 +135,11 @@ body {
 .container_12 .grid_14{
   width: 700px;
 }
+
+.container_12 .grid_15{
+  width: 220px;
+}
+
 .container_12 .grid_13 .welcome{
   font-style:italic;
   display: inline;

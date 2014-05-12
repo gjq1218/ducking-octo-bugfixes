@@ -105,6 +105,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      	<h2>Your Checked Orders</h2>
      	
      	 <div class="profile_form">
+     			    <h4><span><img src = "./images/pint9.png" alt = "current order"></span> When you applied the cancellation successfully, a "closed" status will be shown.
+     			    Please allow 2 hours for us to process it. If you have any question, feel free to <u><a href= "Contacts.jsp"> contact us</a></u>. 
+     	     
             <div class="form_subtitle">View Your Order History</div>
         
  	
