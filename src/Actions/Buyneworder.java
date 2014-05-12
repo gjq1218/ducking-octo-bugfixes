@@ -41,7 +41,7 @@ public String buysomething(String something) throws ParseException{
 	 if(!ActionContext.getContext().getSession().containsKey("currentuser"))
 		 return INPUT;
 	 
-	 Resource res =new FileSystemResource("/Users/haoyuanji/Workspaces2/MyEclipse 10/ShopSystem/src/applicationContext.xml");
+	 Resource res =new FileSystemResource("/Users/Gina/Programming/workspace_MyEclipse/ShopSystem/src/applicationContext.xml");
 	 BeanFactory factory = new XmlBeanFactory(res);
 	 OrderDAO orderDAO = (OrderDAO) factory.getBean("OrderDAO");
 	 MenuDAO menuDAO = (MenuDAO) factory.getBean("MenuDAO");
@@ -59,11 +59,12 @@ public String buysomething(String something) throws ParseException{
 		 Order currentorder;
 	 
 
-	 
+	 //if we already have currentorder, then this currentorder has been saved in the session.
 	 if(ActionContext.getContext().getSession().containsKey("currentorder"))
 	 {
 		 currentorder = (Order) ActionContext.getContext().getSession().get("currentorder");
 		 OrderMenuId checkiterm = new OrderMenuId(currentorder,thisone);
+		 // can't buy twice.
 		 if( ordermenuDAO.findById(checkiterm)!= null)
 		 {
 			 return "fail";
@@ -154,7 +155,7 @@ public String buysomething(String something) throws ParseException{
    
    public String buySichuanSpicyHotPot() throws Exception{
 	      
-	   return buysomething("Sichuan Spicy Hot Pot Hot Pot");
+	   return buysomething("Sichuan Spicy Hot Pot");
    }
    
    public String buySeafoodHotPot() throws Exception{

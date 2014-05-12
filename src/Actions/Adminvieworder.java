@@ -100,7 +100,7 @@ public class Adminvieworder extends ActionSupport {
 		if (!ActionContext.getContext().getSession().containsKey("currentshopadmin"))
 			return INPUT;
 		
-		Resource tmp = new FileSystemResource("/Users/haoyuanji/Workspaces2/MyEclipse 10/ShopSystem/src/applicationContext.xml");
+		Resource tmp = new FileSystemResource("/Users/Gina/Programming/workspace_MyEclipse/ShopSystem/src/applicationContext.xml");
 		BeanFactory factory = new XmlBeanFactory(tmp);
 		OrderDAO orderDAO = (OrderDAO) factory.getBean("OrderDAO");
 		UserOrderDAO userorderDAO = (UserOrderDAO) factory.getBean("UserOrderDAO");

@@ -61,7 +61,7 @@ public String execute() throws Exception {
 		return INPUT;   
 	
 
-	  Resource res =new FileSystemResource("/Users/haoyuanji/Workspaces2/MyEclipse 10/ShopSystem/src/applicationContext.xml");
+	  Resource res =new FileSystemResource("/Users/Gina/Programming/workspace_MyEclipse/ShopSystem/src/applicationContext.xml");
       BeanFactory factory = new XmlBeanFactory(res); 
       OrderDAO orderDAO = (OrderDAO) factory.getBean("OrderDAO");
       UserOrderDAO userorderDAO = (UserOrderDAO) factory.getBean("UserOrderDAO");
@@ -94,6 +94,8 @@ public String execute() throws Exception {
       
       userDAO.update(realuser);
       orderDAO.update(thisorder);
+      
+      ActionContext.getContext().getSession().put("currentuser", realuser);
 
 	   return "success";
 

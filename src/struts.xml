@@ -102,6 +102,7 @@
   <result type = "chain" name = "success">AdminViewOrder</result>
   <result name = "input">Adminlogin.jsp </result>
   </action>
+  <action name = "AdminLoadUserCancellation" class = "Actions.AdminLoadUserCancellation">
   <result name = "success"> Admincancellatoinresult.jsp</result>
   <result name = "input"> Adminlogin.jsp</result>
   </action>

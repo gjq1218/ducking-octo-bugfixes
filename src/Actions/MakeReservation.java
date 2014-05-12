@@ -128,7 +128,7 @@ public class MakeReservation extends ActionSupport {
 		String customername1 = this.getCustomername().trim();
 		
 		//Spring get bean
-		Resource res =new FileSystemResource("/Users/haoyuanji/Workspaces2/MyEclipse 10/ShopSystem/src/applicationContext.xml");
+		Resource res =new FileSystemResource("/Users/Gina/Programming/workspace_MyEclipse/ShopSystem/src/applicationContext.xml");
 		BeanFactory factory = new XmlBeanFactory(res); 
 
 		// get shop entity though shop name
