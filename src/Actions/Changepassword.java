@@ -5,6 +5,8 @@ import java.security.NoSuchAlgorithmException;
 
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 
@@ -103,8 +105,7 @@ public class Changepassword extends ActionSupport{
 		{
 			
 			
-			Resource res = new FileSystemResource("/Users/Gina/Programming/workspace_MyEclipse/ShopSystem/src/applicationContext.xml");
-			BeanFactory factory = new XmlBeanFactory(res);
+			ApplicationContext factory=new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
 			UserDAO userDAO = (UserDAO) factory.getBean("UserDAO");
 			
 			User userchangepwd = new User();

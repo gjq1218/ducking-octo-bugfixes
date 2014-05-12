@@ -12,6 +12,8 @@ import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 
@@ -128,8 +130,7 @@ public class MakeReservation extends ActionSupport {
 		String customername1 = this.getCustomername().trim();
 		
 		//Spring get bean
-		Resource res =new FileSystemResource("/Users/Gina/Programming/workspace_MyEclipse/ShopSystem/src/applicationContext.xml");
-		BeanFactory factory = new XmlBeanFactory(res); 
+		ApplicationContext factory=new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
 
 		// get shop entity though shop name
 		ShopDAO shopDAO = (ShopDAO) factory.getBean("ShopDAO");

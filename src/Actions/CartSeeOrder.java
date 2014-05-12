@@ -9,6 +9,8 @@ import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 
@@ -54,8 +56,7 @@ public String execute() throws Exception {
 	if (!ActionContext.getContext().getSession().containsKey("currentuser"))
 		return INPUT;   
     //System.out.println(orderid);
-	  Resource res =new FileSystemResource("/Users/Gina/Programming/workspace_MyEclipse/ShopSystem/src/applicationContext.xml");
-      BeanFactory factory = new XmlBeanFactory(res); 
+	  ApplicationContext factory=new ClassPathXmlApplicationContext("classpath:applicationContext.xml"); 
       OrderDAO orderDAO = (OrderDAO) factory.getBean("OrderDAO");
       OrderMenuDAO ordermenuDAO = (OrderMenuDAO) factory.getBean("OrderMenuDAO");
       MenuDAO menuDAO = (MenuDAO) factory.getBean("MenuDAO");
