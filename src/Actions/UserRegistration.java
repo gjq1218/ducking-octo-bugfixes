@@ -10,6 +10,8 @@ import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 
@@ -106,8 +108,7 @@ public class UserRegistration extends ActionSupport{
    
    private String checkpossible() throws NoSuchAlgorithmException {
 		// TODO Auto-generated method stub
-	   Resource res =new FileSystemResource("/Users/Gina/Programming/workspace_MyEclipse/ShopSystem/src/applicationContext.xml");
-	   BeanFactory factory = new XmlBeanFactory(res); 
+	   ApplicationContext factory=new ClassPathXmlApplicationContext("classpath:applicationContext.xml"); 
 	   UserDAO userDAO = (UserDAO) factory.getBean("UserDAO");
 	   String email1 = this.getRegisemail().trim();
 	   String username1 = this.getRegisusername().trim();

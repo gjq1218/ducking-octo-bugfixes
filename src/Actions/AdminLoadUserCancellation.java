@@ -7,6 +7,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 
@@ -101,10 +103,10 @@ public class AdminLoadUserCancellation extends ActionSupport {
 		if (!ActionContext.getContext().getSession().containsKey("currentshopadmin"))
 			return INPUT;
 		
-		Resource tmp = new FileSystemResource("/Users/Gina/Programming/workspace_MyEclipse/ShopSystem/src/applicationContext.xml");
-		BeanFactory factory = new XmlBeanFactory(tmp);
+//		Resource tmp = new FileSystemResource("/Users/Gina/Programming/workspace_MyEclipse/ShopSystem/src/applicationContext.xml");
+//		BeanFactory factory = new XmlBeanFactory(tmp);
 		
-		
+		ApplicationContext factory=new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
 		
 		OrderDAO orderDAO = (OrderDAO) factory.getBean("OrderDAO");
 		UserOrderDAO userOrderDAO = (UserOrderDAO) factory.getBean("UserOrderDAO");

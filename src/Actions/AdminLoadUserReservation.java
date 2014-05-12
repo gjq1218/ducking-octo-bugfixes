@@ -7,6 +7,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 
@@ -96,8 +98,7 @@ public class AdminLoadUserReservation extends ActionSupport {
 		if (!ActionContext.getContext().getSession().containsKey("currentshopadmin"))
 			return INPUT;
 		
-		Resource tmp = new FileSystemResource("/Users/Gina/Programming/workspace_MyEclipse/ShopSystem/src/applicationContext.xml");
-		BeanFactory factory = new XmlBeanFactory(tmp);
+		ApplicationContext factory=new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
 		ReservationDAO reservationDAO = (ReservationDAO) factory.getBean("ReservationDAO");
 		UserReservationDAO userreservationDAO = (UserReservationDAO) factory.getBean("UserReservationDAO");
 		ShopDAO shopDAO = (ShopDAO) factory.getBean("ShopDAO");

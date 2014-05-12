@@ -106,6 +106,10 @@
   <result name = "success"> Admincancellatoinresult.jsp</result>
   <result name = "input"> Adminlogin.jsp</result>
   </action>
+  <action name = "AdminViewUserCancellation" class = "Actions.AdminViewUserCancellation">
+  <result type = "chain" name = "success"> AdminLoadUserCancellation</result>
+  <result name = "input"> Adminlogin.jsp</result>
+  </action>
   <action name = "ApproveCancel" class = "Actions.ApproveCancel">
   <result name = "success"> Adminviewcancellation.jsp</result>
   <result name = "input"> Adminlogin.jsp</result>

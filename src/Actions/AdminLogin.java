@@ -5,6 +5,8 @@ import java.security.NoSuchAlgorithmException;
 
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 
@@ -109,8 +111,7 @@ public class AdminLogin extends ActionSupport{
 public String execute() throws Exception{
 	
 	
-	Resource tmp = new FileSystemResource("/Users/Gina/Programming/workspace_MyEclipse/ShopSystem/src/applicationContext.xml");
-	BeanFactory factory = new XmlBeanFactory(tmp);
+	ApplicationContext factory=new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
 	ShopAdminDAO shopAdminDAO = (ShopAdminDAO) factory.getBean("ShopAdminDAO");
 	String result = checkadminlogin(shopAdminDAO);
 	
