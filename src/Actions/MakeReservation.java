@@ -114,7 +114,7 @@ public class MakeReservation extends ActionSupport {
 		
 		if(this.getCustomername() == null || "".equals(this.getCustomername()))
 		{
-			this.addFieldError("customername","Please Select Arrive Time!");
+			this.addFieldError("customername","Please fill customer name!");
 			return "fail";	
 		}	
 

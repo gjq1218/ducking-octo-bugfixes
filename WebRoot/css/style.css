@@ -947,3 +947,41 @@ footer a:hover {
 
 .admin_profile_form table.inner{border: 0px}
  
+ 
+ 
+ /* Cart view profile page */
+
+.cart_profile_form table{
+
+	margin-left: 10px;
+	margin-top: 20px;
+	font-family: fantasy; 
+	color: rgb(95, 94, 78);
+	font-size: 11pt; 
+	font-style: normal;
+	border-collapse: initial;
+	width:630px;
+
+	/* background-color: SlateBlue; 
+	
+	/* border: 2px solid navy */
+	
+}
+
+.cart_profile_form td{
+		padding:10px 0 10px 0;
+		_padding:5px 0 5px 0;
+		
+
+}
+
+
+.cart_profile_form tr{
+		padding:10px 0 10px 0;
+		_padding:5px 0 5px 0;
+		
+
+}
+
+.cart_profile_form table.inner{border: 0px}
+ 

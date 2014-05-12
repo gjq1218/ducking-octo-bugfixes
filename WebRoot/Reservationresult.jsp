@@ -102,9 +102,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <div class = "grid_14">   
   	
+
      	<h2></h2>
-     	
      	 <div class="profile_form">
+     	      <h4><span><img src = "./images/pint9.png" alt = "current order"></span>  If you want to cancel the reservation,
+     	      please call  <span class="cont_phone">Reservation Line (443) 931-5339.</span> <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The reservations office is open daily from
+        10:00 a.m to 6:00 p.m.</h4>
             <div class="form_subtitle">View your Reservation History</div>
         
 		<table> 

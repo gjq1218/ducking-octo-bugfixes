@@ -107,7 +107,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <h3>Reserve Your Table</h3>
       <img src="images/page5_img1.jpg" alt="" class="img_inner fleft">
       <div class="extra_wrapper">
-        <p > Reservations are accepted one month to the calendar date by calling <span class="cont_phone">(443) 931-5339</span> .<!--  </p > <p class ="col1">  -->The reservations office is open daily from
+        <p > Reservations are accepted one month to the calendar date by calling <span class="cont_phone">Reservation Line (443) 931-5339</span>.The reservations office is open daily from
         10:00 a.m to 6:00 p.m. The restaurant will be closed for Private Events on Mar 3rd Jun 15th and Dec 18th.</p>
         <p class = "col1">Please notice that when you request the reservation online, we'll contact you in 1 hour to make sure that you request sucessfully.</p>
         </div>

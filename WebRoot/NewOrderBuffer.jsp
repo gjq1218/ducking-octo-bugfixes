@@ -92,91 +92,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="clear"></div>
           </div>
       </div>
+      
+      <% session.removeAttribute("currentorder");%>
+       <script language="javascript">
+        window.location.href ="Menu.jsp";
+      </script> 
 </header>
 
 <!--==============================Content=================================-->
-<div class="content"><div class="ic"></div>
 
-  <div class="container_12">
-<%@include file = "Leftbar.jsp" %>
-
-<div class = "grid_14">   
-  	
-     	<h2>Your Unchecked orders</h2>
-     	
-     	 <div class="cart_profile_form">
-     	  <h4><span><img src = "./images/pint7.png" alt = "current order"></span> A sign means your current order.</h4>
-            <div class="form_subtitle">View your Cart</div>
-		<table> 
-		<tr>
-		<td align = "center">
-		   <b>Order ID</b>		 
-		</td>
-		<td align = "center">
-           <b>Shop Name</b>
-        </td>
-        <td align = "center">
-           <b>Order Time</b>
-        </td>
-        <td  align = "center">
-           <b>Delivery Address</b>
-         </td>
-         <td  align = "center">
-           <b>Overall Price</b>
-         </td>
-         <td  align = "center">
-           <b>Continue Shopping</b>
-         </td>
-         <td align = "center">
-            <b>Check Out</b>
-         </td>
-         <td>
-         </td>
-		</tr>
-		 <s:iterator id="u" value="currentcart" status = "rowstatus">
-		<tr>
-		<td align = "center" >
-		<s:a href = "CartSeeOrder.action?orderid=%{#u.getOrderId()}">
-		   <s:property value="#u.getOrderId()"/>
- 		</s:a>
-		</td>
-		<td align = "center">
-           <s:property value="#u.getShop().getShopName()"/> 
-        </td>
-        <td align = "center">
-           <s:property value="#u.getTime().toString()"/>
-        </td>
-        <td  align = "center">
-           <s:property value="#u.getDeliveryAddress()"/>
-         </td>
-        <td  align = "center">
-           <s:property value="#u.getOverallPrice()"/>
-         </td>
-         <td  align = "center">
-          <s:a href = "ContinueShopping.action?orderid=%{#u.getOrderId()}">
-           Continue...
-          </s:a>
-         </td>
-         <td align = "center">
-           <s:a href = "CartSeeOrder.action?orderid=%{#u.getOrderId()}">
-           Check Out
-           </s:a>
-         </td>
-         <s:if test = "#u.getOrderId() == #session.currentorder.getOrderId()">
-           <td align = "center">
-              <img src = "./images/pint6.png" alt = "current order" align= "middle">
-           </td>
-         </s:if>
-		</tr>       
-		</s:iterator>
-		</table>
-		
-		     	
-      </div>	
-     	
-     </div>  
-</div>
-</div>
 <!--==============================footer=================================-->
 
 <footer>    

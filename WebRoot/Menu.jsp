@@ -99,7 +99,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div> 
     <div class = "buy"> 
     <%if(session.getAttribute("currentorder") != null) {%>
-      <h2 align = "center" class = "buy"><font color = "red"><a href = "Viewcurrentcart.jsp"><u>My Cart (<s:property value = "#session.menunumber"/>)</u></a></font></h2>
+      <h2 align = "center" class = "buy"><span><img src = "./images/cart.png" alt = "Mycart">&nbsp;&nbsp;</span><font color = "red"><a href = "Viewcurrentcart.jsp"><u>My Cart (<s:property value = "#session.menunumber"/>)</u></a></font></h2>
     <%} %>
     </div>
     

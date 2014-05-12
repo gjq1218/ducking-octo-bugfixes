@@ -87,9 +87,19 @@
   </action>
   <action name = "AdminViewUser" class = "Actions.AdminViewUser" >
   <result name = "success"> Adminviewuserdetail.jsp</result>
+   <result name = "input"> Adminlogin.jsp</result>
   </action>
-  
-  
-  
+  <action name = "AdminLoadUserCancellation" class = "Actions.AdminLoadUserCancellation">
+  <result name = "success"> Admincancellatoinresult.jsp</result>
+  <result name = "input"> Adminlogin.jsp</result>
+  </action>
+  <action name = "ApproveCancel" class = "Actions.ApproveCancel">
+  <result name = "success"> Adminviewcancellation.jsp</result>
+  <result name = "input"> Adminlogin.jsp</result>
+  </action>
+  <action name = "DenyCancel" class = "Actions.DenyCancel">
+  <result name = "success"> Adminviewcancellation.jsp</result>
+  <result name = "input"> Adminlogin.jsp</result>
+  </action>
   </package> 
 </struts>   

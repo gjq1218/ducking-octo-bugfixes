@@ -123,10 +123,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          </td>
          <td>
            <b> User ID</b>
-           
-  
-           
          </td>
+
         
 		</tr>
 		 <s:iterator id="p" value="allUserReservation">

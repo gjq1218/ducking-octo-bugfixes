@@ -1,4 +1,4 @@
-/*
+ /*
   960 Grid System ~ Core CSS.
   Learn more ~ http://960.gs/
 
@@ -401,6 +401,17 @@ border:1px #d7d7b1 dashed;
 position:relative;
 
 }
+
+.cart_profile_form{
+width:650px;
+float:left;
+padding:25px;
+margin:0px 0 0 15px;
+_margin:-100px 0 0 5px;
+border:1px #d7d7b1 dashed;
+position:relative;
+}
+
 
 
 /* .errormsg {
