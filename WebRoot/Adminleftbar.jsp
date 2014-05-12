@@ -8,7 +8,7 @@
        
        <ul class="list2">
         <li><a href="Adminviewreservation.jsp">View the reservation</a></li>
-        <li><a href="#">View the order</a></li>
+        <li><a href="Adminvieworder.jsp">View the order</a></li>
         <li><a href="#">View the cancellation</a></li>
         <li><a href="#">Change password </a></li>
         <li><a href="Adminlogin.jsp"><u>Sign out</u></a></li>

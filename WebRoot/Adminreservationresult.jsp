@@ -105,7 +105,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      	<h2></h2>
      	
      	 <div class="admin_profile_form">
-            <div class="form_subtitle">View All Reservation History Of <s:property value="allUserReservation.get(0).getId().getReservation().getShop().getShopName()"/> Shop</div>
+            <div class="form_subtitle">View All Current Reservation Of <s:property value="allUserReservation.get(0).getId().getReservation().getShop().getShopName()"/> Shop</div>
         
 		<table> 
 		<tr>

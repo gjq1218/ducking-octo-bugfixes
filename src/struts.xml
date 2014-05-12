@@ -58,6 +58,7 @@
   </action>
   <action name = "CheckOut" class = "Actions.CheckOut">
   <result name = "success">Viewcurrentcart.jsp</result>
+  <result name = "fail">Checkout.jsp</result>
   <result name = "input">Sign_in.jsp </result>
   </action>
   <action name = "Deletemenu" class = "Actions.Deletemenu">
@@ -87,9 +88,32 @@
   </action>
   <action name = "AdminViewUser" class = "Actions.AdminViewUser" >
   <result name = "success"> Adminviewuserdetail.jsp</result>
+  <result name ="input">Adminlogin.jsp</result>
   </action>
-  
-  
-  
+  <action name = "AdminOrderViewUser" class = "Actions.AdminOrderViewUser" >
+  <result name = "success"> Adminorderviewuserdetail.jsp</result>
+  <result name ="input">Adminlogin.jsp</result>
+  </action>
+  <action name = "AdminViewOrder" class = "Actions.Adminvieworder">
+  <result name = "success">Adminorderresult.jsp</result>
+  <result name = "input">Adminlogin.jsp </result>
+  </action>
+  <action name = "Closeorder" class = "Actions.Closeorder">
+  <result type = "chain" name = "success">AdminViewOrder</result>
+  <result name = "input">Adminlogin.jsp </result>
+  </action>
+<!--   <action name = "AdminLoadUserCancellation" class = "Actions.AdminLoadUserCancellation">
+  <result name = "success"> Admincancellatoinresult.jsp</result>
+  <result name = "input"> Adminlogin.jsp</result>
+  </action>
+  <action name = "ApproveCancel" class = "Actions.ApproveCancel">
+  <result name = "success"> Adminviewcancellation.jsp</result>
+  <result name = "input"> Adminlogin.jsp</result>
+  </action>
+  <action name = "DenyCancel" class = "Actions.DenyCancel">
+  <result name = "success"> Adminviewcancellation.jsp</result>
+  <result name = "input"> Adminlogin.jsp</result>
+  </action> -->
+
   </package> 
 </struts>   
